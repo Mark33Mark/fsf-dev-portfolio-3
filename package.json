@@ -2,10 +2,13 @@
   "name": "fsf-dev-portfolio-3",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://get.watsonised.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^3.2.3",
+    "postcss": "^8.4.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -16,7 +19,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -25,7 +30,8 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2"
+    "mini-css-extract-plugin": "2.4.5",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   },
   "browserslist": {
     "production": [

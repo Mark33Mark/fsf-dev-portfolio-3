@@ -52,12 +52,12 @@ export default function Portfolio() {
                       <p className="leading-relaxed text-base py-4">
                         {project.description}
                       </p>
-                      <a href={project.github}>
+                      <a href={project.github} target="_blank" rel="noreferrer">
                         <div className="inline-block px-5 gallery-icon text-4xl icon-SVG_github_repo"> 
                           <p className="text-base font-mono">repo</p>
                         </div>
                       </a>
-                      <a href={project.link}>
+                      <a href={project.link} target="_blank" rel="noreferrer">
                         <div className="inline-block gallery-icon text-4xl icon-SVG_myWebpage"> 
                           <p className="text-base font-mono">website </p>
                         </div>
