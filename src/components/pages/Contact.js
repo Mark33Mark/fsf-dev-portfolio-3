@@ -55,7 +55,7 @@ export default function Contact() {
     })
       .then(() => {
                 // alert("Message sent!");
-                setErrorMessage('Your message has been sent successfully.');
+                setErrorMessage('Form under construction, currently server connection not receiving messages.');
                 setName('');
                 setMessage('');
                 setEmail('');

@@ -26,7 +26,7 @@ export default function Portfolio() {
         </p>
 
         <div className="portfolio-cards container py-2 bg-gray-300">
-          <div className="flex flex-wrap ">
+          <div className="flex flex-wrap justify-center">
 
             {AppsData.map((project, index) => (
 
