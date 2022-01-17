@@ -30,7 +30,7 @@ const [currentPage, setCurrentPage] = useState('About');
 const handlePageChange = ( page ) => setCurrentPage( page );
 
   return (
-    <div className="flex flex-col min-h-screen border-solid border-16 border-regal-blue rounded-3xl bg-cream">
+    <div className="flex flex-col min-h-screen border-solid sm:border-6 md:border-16 border-4 border-regal-blue rounded-3xl bg-cream">
       <Header 
             currentPage       ={currentPage} 
             handlePageChange  ={handlePageChange} 

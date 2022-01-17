@@ -4,6 +4,14 @@ import React, {useState} from "react";
 // Import helper functions to check if the email is valid
 import { validateEmail } from '../../utils/helpers';
 
+
+const encode = data => {
+  return Object.keys(data)
+    .map( (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
+
 export default function Contact() {
 
   const [name, setName] = useState("");
@@ -27,11 +35,7 @@ export default function Contact() {
     }
   };
 
-  const encode = data => {
-    return Object.keys(data)
-      .map( (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -46,7 +50,6 @@ export default function Contact() {
   
     fetch("/", {
       method: "POST",
-      mode: "no-cors",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", name, email, message }),
     })
