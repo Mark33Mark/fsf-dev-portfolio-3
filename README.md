@@ -1,7 +1,9 @@
 ![Mark Watson](./assets/abstract_white_banner.jpg)
 
-# USYD-FSF Week 20 Project   [![webpage](./assets/myWebpage.png)](https://get.watsonised.com) [![github](./assets/PNG_github_commits_logo.png)](https://github.com/Mark33Mark/fsf-dev-portfolio-3)  
+[![webpage](./assets/myWebpage.png)](https://get.watsonised.com)  [![github](./assets/PNG_github_commits_logo.png)](https://github.com/Mark33Mark/fsf-dev-portfolio-3) 
 
+# USYD-FSF Week 20 Project   
+ 
 ## React Portfolio
 
 ### Table of Contents  
