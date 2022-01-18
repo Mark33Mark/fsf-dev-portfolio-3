@@ -45,7 +45,7 @@ export default function Header({ currentPage, handlePageChange }) {
                         </a>
                     </div>
 
-                    <div className="quote-animate-fading flex justify-center items-center px-3 w-98 text-sm">
+                    <div className="quote-animate-fading text-gray-600 flex justify-center items-center px-3 w-98 text-sm">
 
                         <QuoteResult quotes = {quotes} />
                         

@@ -6,7 +6,7 @@ import React from 'react';
 export const CodeIcon = () => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
-        className="h-12 w-12" 
+        className="h-12 w-12 text-regal-blue" 
         fill="none" 
         viewBox="0 0 24 24" 
         stroke="currentColor"
@@ -23,7 +23,7 @@ export const CodeIcon = () => (
 export const TerminalIcon = () => (
     <svg 
         xmlns="http://www.w3.org/2000/svg" 
-        className="h-12 w-18" 
+        className="h-12 w-18 text-regal-blue" 
         fill="none" 
         viewBox="0 0 24 24" 
         stroke="currentColor"

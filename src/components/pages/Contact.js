@@ -67,7 +67,7 @@ export default function Contact() {
 
     <section id="contact" className="relative sm:px-24 px-5 flex-grow  max-w-screen-xl sm:text-2xl text-base">
 
-      <h1 className="font-medium flex justify-evenly text-gray-500  subpixel-antialiased sm:text-5xl md:text-7xl text-3xl text-center mb-4">
+      <h1 className="font-medium flex justify-evenly text-regal-blue  subpixel-antialiased sm:text-5xl md:text-7xl text-3xl text-center mb-4">
         Get In Touch
       </h1>
       <div className="container  py-10 mx-auto flex md:flex-nowrap w-full flex-wrap">

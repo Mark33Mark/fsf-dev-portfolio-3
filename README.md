@@ -23,12 +23,14 @@
 
 **What is this project?**  
 
-*   Another version of my portfolio but this time programmed using React.  You can compare the 2 live versions I have:  
-   [HTML: hire.watsonised.com](https://hire.watsonised.com)  
-   or the new version done for this assignment  
-   [React: get.watsonised.com](https://get.watsonised.com)  
+*  A portfolio application programmed using the React package, thanks Facebook for developing React.  I now have 2 live versions of my portfolio, you can compare the versions as follows:  
+   
+   [React:  get.watsonised.com](https://get.watsonised.com)  
+   
+   or my vanilla JavaScript version    
+   [HTML:  hire.watsonised.com](https://hire.watsonised.com)  
 
-*  I'm very new to React so I was unable to completely mirror my HTML website.  React is a great package and well worth the commitment to learn.  
+*  I'm very new to React.  This was a first project for me where I've tried to mirror my JavaScript version.  It's not an exact mirror, more of an evolution. React is a great package and well worth the commitment to learn as it makes updating / refreshing a lot quicker than having to full code restructures to implement new add ons.  The JavaScript version will be replaced with the React version, including moving the React version to the URL hire.watsonised.com.  This will be done once I've got the form working and completed some styling changes, such as font update and general refinement.  
 
 **Why this project?**  
 
