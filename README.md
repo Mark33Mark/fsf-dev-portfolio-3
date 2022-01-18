@@ -55,21 +55,21 @@
 
 The portfolio satisfies all of the user acceptance criteria as listed in the [Checklist](#10-checklist) below.  
 
-![walkthrough video](./assets/myPortfolio_walkthrough_u.gif)
+![walkthrough video](./assets/myPortfolio_walkthrough.gif)
 
 ### Responsiveness:  
 
 #### Large Screens
 
-![large screen](./assets/Screenshot1.jpg)
+![large screen](./assets/Screenshot1_largeScreen.jpg)
 
 #### Medium Screens
 
-![medium screen](./assets/Screenshot2.jpg)
+![medium screen](./assets/Screenshot1_mediumScreen.jpg)
 
 #### Small Screens
 
-![small screen](./assets/Screenshot3.jpg)
+![small screen](./assets/Screenshot1_smallScreen.jpg)
 
 ---
 

@@ -8,10 +8,10 @@ export default function Portfolio() {
 
   return (
 
-    <section id="portfolio" className="sm:px-24 px-5 flex-grow max-w-screen-xl sm:text-2xl text-base">
+    <section id="portfolio" className="sm:px-24 px-5 flex-grow max-w-screen-xl sm:text-xl md:text-2xl text-base">
       <div className="container px-5 py-5 mx-auto text-center lg:px-30">
         <div className="flex flex-row w-full justify-center items-center mb-12">
-          <TerminalIcon className="text-regal-blue"/>
+          <TerminalIcon />
           <h1 className="mx-16 font-medium text-regal-blue subpixel-antialiased sm:text-5xl md:text-7xl text-3xl">
             Selected Work
           </h1>

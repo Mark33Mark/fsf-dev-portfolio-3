@@ -89,7 +89,7 @@ a:focus:before {
 
 .contact-links:hover:before,
 .contact-links:focus:before{
-  transform: scale(0);
+  transform: scale(0) translateY(0);
 }
 
 .contact-icons{
@@ -99,7 +99,7 @@ a:focus:before {
 .contact-icons:hover,
 .contact-icons:focus{
   color: var(--royal-blue);
-  font-size: 4.5rem; 
+  transform: scale(1.7) translateY(-20%);
 }
 
 .portfolio-cards{
