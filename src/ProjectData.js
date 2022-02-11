@@ -1,6 +1,14 @@
 
 export const AppsData = [
     {
+      title: "Flickering",
+      subtitle: "MERN GraphJS Apollo",
+      description:"A tracker for your emotions / mood.",
+      image: "./assets/projects/flickering_notesPage.jpg",
+      link: "https://flickering.herokuapp.com",
+      github: "https://github.com/Mark33Mark/flickering",
+    },
+    {
       title: "Quot3d",
       subtitle: "Express SQL Heroku",
       description:"A quote feed of over 1600 quotes.",
@@ -96,6 +104,7 @@ export const AppsData = [
     "CSS",
     "Express",
     "Git",
+    "GraphJS",
     "GraphQL",
     "Heroku",
     "HTML",
