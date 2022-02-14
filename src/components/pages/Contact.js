@@ -36,13 +36,12 @@ export default function Contact() {
   };
 
 
-
   const handleSubmit = e => {
     e.preventDefault();
 
     // validate email and name. If so we set an error message to be displayed on the page.
-    if ( !validateEmail(email) || !name || !message ) {
-      setErrorMessage('I can\'t submit the form for you. Please provide a name, valid email and message.');
+    if ( !validateEmail( email ) || !name || !message ) {
+      setErrorMessage('Please provide a name, valid email and message for your message to be sent.');
       
       // exit out of this code block if something is wrong.
       return;
@@ -55,12 +54,12 @@ export default function Contact() {
     })
       .then(() => {
                 // alert("Message sent!");
-                setErrorMessage('Form under construction, currently server connection not receiving messages.');
-                setName('');
-                setMessage('');
-                setEmail('');
+                setErrorMessage("Thanks for your message, I'll respond as soon as possible.");
+                setName("");
+                setMessage("");
+                setEmail("");
               })
-      .catch((error) => alert(error));
+      .catch( error => alert( error ) );
   };
 
   return (
