@@ -100,8 +100,10 @@ export const AppsData = [
   
   export const Skills = [
     "API's",
+    "AWS",
     "C",
     "CSS",
+    "DynamoDB",
     "Express",
     "Git",
     "GraphJS",
@@ -111,10 +113,12 @@ export const AppsData = [
     "JavaScript",
     "MongoDB",
     "Mongoose",
+    "Netlify",
     "Node",
     "NoSQL",
     "Python",
     "React",
+    "S3 and EC2",
     "Sequelize",
     "SQL",
   ];
