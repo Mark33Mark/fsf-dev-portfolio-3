@@ -13,7 +13,7 @@ export const AppsData = [
       subtitle: "Express SQL Heroku",
       description:"A quote feed of over 1600 quotes.",
       image: "./assets/projects/screengrab_quoted1.jpg",
-      link: "https://quote.watsonised.com",
+      link: "https://quot3d.netlify.app",
       github: "https://github.com/Mark33Mark/quoted",
     },
     {
@@ -45,7 +45,7 @@ export const AppsData = [
       subtitle: "Open-Weather API LocalStorage",
       description:"Remembers multiple locations.",
       image: "./assets/projects/weather_dash.jpg",
-      link: "https://sun.watsonised.com",
+      link: "https://sun.watsonised.me",
       github: "https://github.com/Mark33Mark/weather-dashboard",
     },
     {
@@ -53,7 +53,7 @@ export const AppsData = [
       subtitle: "API CSS JavaScript",
       description:"A recipe generating application.",
       image: "./assets/projects/lettuce_eat.jpg",
-      link: "https://eat.watsonised.com",
+      link: "https://eat.watsonised.me",
       github: "https://github.com/Mark33Mark/recipe-generator",
     },
     {
@@ -61,7 +61,7 @@ export const AppsData = [
       subtitle: "JavaScript CSS",
       description:"A fun template for hosting online quizzes.",
       image: "./assets/projects/code_quiz.jpg",
-      link: "https://quiz.watsonised.com",
+      link: "https://quiz.watsonised.me",
       github: "https://github.com/Mark33Mark/code-quiz_webAPI",
     },
     {
@@ -69,7 +69,7 @@ export const AppsData = [
       subtitle: "JavaScript CSS LocalStorage",
       description:"Simple but effective daily scheduler.",
       image: "./assets/projects/workday_scheduler.jpg",
-      link: "https://task.watsonised.com",
+      link: "https://task.watsonised.me",
       github: "https://github.com/Mark33Mark/workday-scheduler",
     },
     {
