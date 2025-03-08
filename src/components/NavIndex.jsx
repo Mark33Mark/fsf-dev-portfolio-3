@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-function NavIndex({ currentPage, handlePageChange }) {
+export const NavIndex = ({ currentPage, handlePageChange }) => {
 
   return (
     <div className="navigator text-base sm:text-2xl flex place-content-center max-w-screen-xl pb-8">
@@ -54,5 +54,3 @@ function NavIndex({ currentPage, handlePageChange }) {
     </div>
   );
 }
-
-export default NavIndex;

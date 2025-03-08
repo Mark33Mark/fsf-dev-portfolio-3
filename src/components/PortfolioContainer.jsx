@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 
-import Header from './Header';
-import NavIndex from './NavIndex';
-
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
-import Resume from './pages/Resume';
-import Footer from './Footer';
+import {Header} from './Header';
+import {NavIndex} from './NavIndex';
+import { Footer } from './Footer';
+import {About, Portfolio, Contact, Resume } from './pages';
 
 
 
@@ -30,7 +26,7 @@ const [currentPage, setCurrentPage] = useState('About');
 const handlePageChange = ( page ) => setCurrentPage( page );
 
   return (
-    <div className="flex flex-col min-h-screen border-solid sm:border-6 md:border-16 border-4 border-regal-blue rounded-3xl bg-cream">
+    <div className="flex flex-col min-h-screen border-solid sm:border-6 md:border-16 border-4 border-(--royal-blue) rounded-3xl bg-(--bg)">
       <Header 
             currentPage       ={currentPage} 
             handlePageChange  ={handlePageChange} 

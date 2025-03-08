@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { DocDownloadIcon } from "../Icons";
 
 
-export default function Home() {
+export const Resume = () => {
 
 
   const [active, setActive] = useState(true);
@@ -18,7 +18,7 @@ export default function Home() {
     <section id="contact" className="sm:px-10 px-5 flex-grow  max-w-screen-xl sm:text-xl md:text-2xl text-base">
 
       <div className="flex flex-row w-full justify-center items-center mb-7">
-        <h1 className="mx-16 font-medium text-regal-blue subpixel-antialiased sm:text-4xl md:text-6xl text-2xl">
+        <h1 className="mx-16 font-medium text-(--royal-blue) subpixel-antialiased sm:text-4xl md:text-6xl text-2xl">
           Resume
         </h1>
         

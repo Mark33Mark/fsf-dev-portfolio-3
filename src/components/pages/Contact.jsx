@@ -12,7 +12,7 @@ const encode = data => {
 };
 
 
-export default function Contact() {
+export const Contact = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -66,7 +66,7 @@ export default function Contact() {
 
     <section id="contact" className="relative sm:px-24 px-5 flex-grow  max-w-screen-xl sm:text-xl md:text-2xl text-base">
 
-      <h1 className="font-medium flex justify-evenly text-regal-blue  subpixel-antialiased sm:text-5xl md:text-7xl text-3xl text-center mb-4">
+      <h1 className="font-medium flex justify-evenly text-(--royal-blue)  subpixel-antialiased sm:text-5xl md:text-7xl text-3xl text-center mb-4">
         Get In Touch
       </h1>
       <div className="container  py-10 mx-auto flex md:flex-nowrap w-full flex-wrap">
@@ -145,7 +145,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="text-white bg-regal-blue border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+            className="text-white bg-(--royal-blue) border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
             Submit
           </button>
         </form>

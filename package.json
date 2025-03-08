@@ -2,47 +2,39 @@
   "name": "fsf-dev-portfolio-3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://get.watsonised.com",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "gh-pages": "^3.2.3",
-    "postcss": "^8.4.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-scripts": "^5.0.0",
-    "web-vitals": "^2.1.3"
-  },
+  "homepage": "https://Mark33Mark.github.io/fsf-dev-portfolio-3",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "vite",
+    "build": "npm run prebuild && vite build",
+    "prebuild": "rm -rf dist/ && rm -rf build/",
+    "preview": "vite preview",
+    "vitest-preview": "vitest-preview",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "test:debug": "npm-run-all -p test vitest-preview",
+    "test:ui": "vitest --ui",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "postcss": "^8.5.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
-    "mini-css-extract-plugin": "2.4.5",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@jest/expect-utils": "^29.7.0",
+    "@tailwindcss/vite": "^4.0.12",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react-swc": "^3.8.0",
+    "@vitest/coverage-v8": "^3.0.8",
+    "@vitest/ui": "^3.0.8",
+    "gh-pages": "^6.3.0",
+    "sass": "^1.85.1",
+    "tailwindcss": "^4.0.12",
+    "vite": "^6.2.1",
+    "vite-plugin-react": "^4.0.1",
+    "vitest": "^3.0.8"
   }
 }

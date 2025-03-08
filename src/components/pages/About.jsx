@@ -1,12 +1,12 @@
 import React from 'react';
 import { Skills } from "../../ProjectData";
 
-export default function About() {
+export const About = () => {
   return (
 
     <section id="about" className="sm:px-24 px-5 flex-grow  max-w-screen-xl sm:text-xl md:text-2xl text-base" >
           
-          <h1 className="font-medium flex justify-evenly text-regal-blue  subpixel-antialiased sm:text-5xl md:text-7xl text-3xl text-center mb-4 ">
+          <h1 className="font-medium flex justify-evenly text-(--royal-blue)  subpixel-antialiased sm:text-5xl md:text-7xl text-3xl text-center mb-4 ">
             Hello and welcome, <br /> I'm Mark.
           </h1>
 

@@ -3,7 +3,7 @@ import React from "react";
 import { AppsData } from "../../ProjectData";
 import { CodeIcon, TerminalIcon } from "../Icons";
 
-export default function Portfolio() {
+export const Portfolio = () => {
 
 
   return (
@@ -12,7 +12,7 @@ export default function Portfolio() {
       <div className="container px-5 py-5 mx-auto text-center lg:px-30">
         <div className="flex flex-row w-full justify-center items-center mb-12">
           <TerminalIcon />
-          <h1 className="mx-16 font-medium text-regal-blue subpixel-antialiased sm:text-5xl md:text-7xl text-3xl">
+          <h1 className="mx-16 font-medium text-(--royal-blue) subpixel-antialiased sm:text-5xl md:text-7xl text-3xl">
             Selected Work
           </h1>
           <CodeIcon />
@@ -39,7 +39,7 @@ export default function Portfolio() {
                       src={project.image}
                     />
 
-                    <div className="px-4 py-5 relative z-10 w-full border-4 border-regal-blue bg-white opacity-0 hover:opacity-80">
+                    <div className="px-4 py-5 relative z-10 w-full border-4 border-(--royal-blue) bg-white opacity-0 hover:opacity-80">
 
                       <h2 className="title-font text-xl font-medium font-bold text-gray-900 mb-1">
                         {project.title}
