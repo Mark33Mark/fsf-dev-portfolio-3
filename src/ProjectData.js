@@ -5,7 +5,7 @@ export const AppsData = [
       subtitle: "MERN GraphJS Apollo",
       description:"A tracker for your emotions / mood.",
       image: "./assets/projects/flickering_notesPage.jpg",
-      link: "https://flickering.herokuapp.com",
+      link: "#",
       github: "https://github.com/Mark33Mark/flickering",
     },
     {
@@ -21,7 +21,7 @@ export const AppsData = [
       subtitle: "PWA IndexedDB Heroku ",
       description:"An installable PWA for script editing.",
       image: "./assets/projects/JATE_screengrab.jpg",
-      link: "https://jate-editor.herokuapp.com",
+      link: "#",
       github: "https://github.com/Mark33Mark/PWA_text_editor",
     },
     {
@@ -29,7 +29,7 @@ export const AppsData = [
       subtitle: "React LocalStorage gh-pages",
       description:"Simple React app for managing your tasks.",
       image: "./assets/projects/todo_screengrab.jpg",
-      link: "https://todo.watsonised.com",
+      link: "https://todo.watsonised.me",
       github: "https://github.com/Mark33Mark/react-todo-app",
     },
     {
@@ -37,7 +37,7 @@ export const AppsData = [
       subtitle: "mySQL Sequelize BCrypt Heroku",
       description:"A blog site with user authentication.",
       image: "./assets/projects/tech_yes_screengrab.jpg",
-      link: "https://tech-yes.herokuapp.com/",
+      link: "#",
       github: "https://github.com/Mark33Mark/tech-yes",
     },
     {
@@ -77,7 +77,7 @@ export const AppsData = [
       subtitle: "MySQL Heroku GSAP Sequelize",
       description:"Find when a movie release date for next 12 months.",
       image: "./assets/projects/flicked_landing.jpg",
-      link: "https://flick3d.herokuapp.com",
+      link: "#",
       github: "https://github.com/Mark33Mark/movie-scheduler",
     },
   ];

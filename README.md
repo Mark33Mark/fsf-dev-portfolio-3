@@ -25,15 +25,11 @@
 
 **What is this project?**  
 
-*  A portfolio application programmed using the React package, thanks Facebook for developing React.  I now have 2 live versions of my portfolio, you can compare the versions as follows:  
+*  A portfolio application programmed using the React JavaScript library, thanks Facebook (now Meta) for developing React:
    
-   [React:  get.watsonised.com](https://get.watsonised.com)  
+   [My Portfolio developed with React:  get.watsonised.me](https://get.watsonised.me)  
    
-   or my vanilla JavaScript version    
-   [HTML:  hire.watsonised.com](https://hire.watsonised.com)  
-
-*  I'm very new to React.  This was a first project for me where I've tried to mirror my JavaScript version.  It's not an exact mirror, more of an evolution. React is a great package and well worth the commitment to learn as it makes updating / refreshing a lot quicker than having to full code restructures to implement new add ons.  The JavaScript version will be replaced with the React version, including moving the React version to the URL hire.watsonised.com.  This will be done once I've got the form working and completed some styling changes, such as font update and general refinement.  
-
+ 
 **Why this project?**  
 
 * As a web developer you're part of a community and a well setup portfolio page is an important place to share your projects and help you with applying for jobs or working as a freelancer but also to share your work with other developers and collaborate on projects.
