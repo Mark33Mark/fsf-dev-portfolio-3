@@ -96,6 +96,7 @@ export const Contact = () => {
           onSubmit={handleSubmit}
           className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-0 mt-2 md:mt-0"
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
 
           <p className="leading-relaxed mb-5">
