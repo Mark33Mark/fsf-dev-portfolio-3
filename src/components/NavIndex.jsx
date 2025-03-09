@@ -10,7 +10,7 @@ export const NavIndex = ({ currentPage, handlePageChange }) => {
           href="#about"
           onClick={() => handlePageChange('About')}
 
-          className={currentPage === 'About' ? 'page-link active' : 'page-link'}
+          className={currentPage === 'About' ? 'about page-link active' : 'about page-link'}
           style={{paddingLeft: "20px", paddingRight: "20px"}}
         >
           About  

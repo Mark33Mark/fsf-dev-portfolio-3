@@ -26,13 +26,13 @@ export const Resume = () => {
       <p className="relative mb-3 md:px-32 px-10">
         Clicking on the page below will scroll through the pages of my resume. 
         You can also download my resume by clicking the following icon:
-        <a href="../assets/resume_MarkWatson.pdf" target="_blank" className="absolute pl-5">
+        <a href="../assets/resume_MarkWatson.pdf" target="_blank" className="download absolute pl-5">
           <DocDownloadIcon />
         </a>
       </p>
 
 
-      <div className="w-100 pt-5 flex justify-center">
+      <div className="pt-5 flex justify-center">
         { 
           active 
           ? ( <img

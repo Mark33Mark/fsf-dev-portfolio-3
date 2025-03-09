@@ -33,10 +33,11 @@ export const Header = ({ currentPage, handlePageChange }) => {
                         <a 
                             href="#portfolio"
                             onClick={() => handlePageChange('Portfolio')}
-                            className={currentPage === 'Portfolio' ? 'page-link active' : 'page-link'}
+                            // className={currentPage === 'Portfolio' ? 'page-link active' : 'page-link'}
+                            className={'page-link'}
                         >
                             <img
-                                className=" rounded inline-flex h-20 sm:h-28"
+                                className="logo-image rounded inline-flex h-20 sm:h-28"
                                 alt="Logo Mark Watson"
                                 src="../assets/Logo.svg"
                                 onMouseOver= {(e) => e.currentTarget.src = "../assets/Logo_hover.svg"}
