@@ -47,13 +47,12 @@ export const Contact = () => {
       return;
     }
 
-    const myForm = e.target;
-    const formData = new FormData(myForm);
+    console.log('form data = ', {name, email, message});
   
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
+      body: encode({ "form-name": "contact", name, email, message }),
     })
       .then(() => {
                 // alert("Message sent!");
@@ -93,11 +92,9 @@ export const Contact = () => {
         <form
           onSubmit={handleSubmit}
           className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-0 mt-2 md:mt-0"
-          data-netlify="true"
-          id="contact-form"
-          netlify-honeypot="bot-field"
+          method="POST"
         >
-
+          <input type="hidden" name="form-name" value="contact" />
           <p className="leading-relaxed mb-5">
             Let's communicate. Please use the form below to send me a message and I'll get back to you as soon as I can.
           </p>
