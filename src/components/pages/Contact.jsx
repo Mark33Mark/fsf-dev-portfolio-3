@@ -46,15 +46,18 @@ export const Contact = () => {
       // exit out of this code block if something is wrong.
       return;
     }
+
+    const myForm = e.target;
+    const formData = new FormData(myForm);
   
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", name, email, message }),
+      body: new URLSearchParams(formData).toString(),
     })
       .then(() => {
                 // alert("Message sent!");
-                setErrorMessage("Thanks for your message, I'll respond as soon as possible.");
+                setErrorMessage("Thanks for emailing me, I'll respond as soon as possible.");
                 setName("");
                 setMessage("");
                 setEmail("");
@@ -88,10 +91,12 @@ export const Contact = () => {
         </div>
         
         <form
-          netlify
+          method="POST"
           name="contact"
           onSubmit={handleSubmit}
-          className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-0 mt-2 md:mt-0">
+          className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-0 mt-2 md:mt-0"
+          data-netlify="true"
+        >
 
           <p className="leading-relaxed mb-5">
             Let's communicate. Please use the form below to send me a message and I'll get back to you as soon as I can.
