@@ -47,19 +47,29 @@ export const Contact = () => {
       return;
     }
 
-    console.log('form data = ', {name, email, message});
+    console.log('form data submitted = ', {name, email, message, encoded: encode({ "form-name": "contact", name, email, message })});
+
+    // e.target.reset();
   
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", name, email, message }),
     })
-      .then(() => {
+      .then((res) => {
                 // alert("Message sent!");
-                setErrorMessage("Thanks for emailing me, I'll respond as soon as possible.");
-                setName("");
-                setMessage("");
-                setEmail("");
+                // setErrorMessage("Thanks for emailing me, I'll respond as soon as possible.");
+
+                console.log('res = ', res.status);
+
+                if(res.status !== 200) {
+                  e.target.reset(); 
+                  setErrorMessage("Unfortunately your form didn't submit.\n\nSomething is broken, please don't reattempt.");
+                } else {
+                  e.target.reset(); 
+                  setErrorMessage("Success! Thanks for emailing me, I'll respond as soon as possible.");
+                }
+
               })
       .catch( error => alert( error ) );
   };
@@ -154,7 +164,7 @@ export const Contact = () => {
       </div>
 
       {errorMessage && (
-        <div className="float-right mr-16 text-red-600 bg-gray-400 w-60 rounded font-semibold p-5 text-base">
+        <div className="float-right mr-16 text-black bg-gray-300 w-60 rounded font-semibold p-5 text-base">
           <p className="error-text">{errorMessage}</p>
         </div>
       )}
