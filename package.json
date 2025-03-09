@@ -2,7 +2,7 @@
   "name": "fsf-dev-portfolio-3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Mark33Mark.github.io/fsf-dev-portfolio-3",
+  "homepage": "https://get.watsonised.me",
   "scripts": {
     "dev": "vite",
     "build": "npm run prebuild && vite build",
@@ -14,7 +14,7 @@
     "test:debug": "npm-run-all -p test vitest-preview",
     "test:ui": "vitest --ui",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run predeploy && gh-pages -d dist"
   },
   "dependencies": {
     "postcss": "^8.5.3",
