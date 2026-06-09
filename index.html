@@ -1,40 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-
-    <title>Mark Watson | Full Stack Developer | Sydney Australia</title>
-
-    <!--- basic page needs and meta to boost SEO
-    ================================================== -->
-		<meta name="description" content="Mark Watson - developer and creator in the digital realm - web and devices" />  
-		<meta name="author" content="Mark Watson" />
-		<meta name="KEYWORDS" content="front end web developer, front-end web developer, full stack developer, 
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <title>Mark Watson | Full Stack Developer | Sydney Australia</title>
+        <meta name="description" content="Mark Watson - full stack web developer and creator of the digital realm - web and devices" />
+        <meta name="author" content="Mark Watson" />
+        <meta
+            name="KEYWORDS"
+            content="front end web developer, front-end web developer, full stack developer, 
                                     social media, graphic design, analysis, database, 
                                     e-commerce, website, web design, web designer, grahic design  
                                     ui designer, ux designer, ui, ux, 
-                                    curriculum vitae web developer, resume web developer" />
+                                    curriculum vitae web developer, resume web developer"
+        />
 
-    <link rel="icon" href="/assets/favicon.ico" />
-    <link rel="apple-touch-icon" href="/assets/logo192.png" />
-    <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/assets/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/assets/Logo.svg" />
+        <link rel="apple-touch-icon" href="/assets/logo192.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="preconnect" href="https://map.watsonised.me" />
+    </head>
 
-  </head>
+    <body>
+        <!-- Needed for Netlify, requires a static HTML form to work.  This is hidden. -->
+        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+            <input type="text" name="name" autocomplete="off" />
+            <input type="email" name="email" autocomplete="off" />
+            <textarea name="message"></textarea>
+        </form>
 
-  <body>
-
-    <!-- Needed as Netlify needs a static HTML form to work.  This is hidden. -->
-    <!-- https://www.freecodecamp.org/news/build-portfolio-website-react/ -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden >
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <textarea name="message"></textarea>
-    </form>
-    
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-		<script type="module" src="./src/main.jsx"></script>
-  </body>
+        <noscript>This page needs JavaScript enabled to work.</noscript>
+        <div id="root"></div>
+        <script type="module" src="./src/main.jsx"></script>
+    </body>
 </html>

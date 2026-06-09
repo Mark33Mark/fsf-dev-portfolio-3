@@ -1,39 +1,30 @@
-import React from 'react';
-import { Skills } from "../../ProjectData";
+import { Skills } from '../../utilities';
 
 export const About = () => {
-  return (
+    return (
+        <>
+            <h1 className='About-PageHeading'>Welcome...</h1>
 
-    <section id="about" className="sm:px-24 px-5 flex-grow  max-w-screen-xl sm:text-xl md:text-2xl text-base" >
-          
-          <h1 className="font-medium flex justify-evenly text-(--royal-blue)  subpixel-antialiased sm:text-5xl md:text-7xl text-3xl text-center mb-4 ">
-            Hello and welcome, <br /> I'm Mark.
-          </h1>
+            <div className='About-ProfileContainer'>
+                <p>
+                    I'm <span className="About-MyName">Mark Watson</span>, a skilled full stack web developer with a property development and capital
+                    transactions background, who has worked for some of Australia's largest corporations.
+                </p>
+                <p> Based in Sydney, Australia.</p>
+                <p>
+                    With a foundation of creativity and technical expertise, I can develop intuitive user experiences
+                    for the web.
+                </p>
+                <p>Skilled in developing responsive and accessible web designs using: </p>
 
-            <p className="py-3"> A full stack web developer with a property development and capital transactions background who has worked for some of Australia's largest corporations.</p> 
-            <p className="py-3">  Based in Sydney, Australia.</p>
-            <p className="py-3">  With a deep understanding of electronics and programming using different programming languages and technologies, 
-              I develop amazing user experiences.</p>
-            <p className="py-3">  Drawing on a foundation of creativity I can develop intuitive user experiences for the web.</p>  
-            <p className="py-3">  Certificate in full stack web development from the University of Sydney.  Skilled in developing responsive 
-                                  and accessible web designs using: </p>  
-
-              <ul className="tags-list flex flex-wrap justify-center">
-                {Skills.map( ( skill, index ) => ( <li key={index} className="tag">{skill}</li> ))}
-              </ul>
-
-            <p className="py-3">  I work well in agile development teams.  Highly capable delivering effectively from a well articulated brief or 
-              from a couple of adjectives.</p>
-            
-            <div className="py-3">enjoys…</div>
-      
-            <ul className="ml-16 pb-5 list-square">
-              <li>Powerlifting and rockclimbing - when I can.</li>
-              <li>Biohacking to optimise life.</li>
-              <li>Internet of Things using Arduino's.</li>
-            </ul>
-
-    </section>
-
-  );
-}
+                <ul className='About-TagsList'>
+                    {Skills.map((skill, index) => (
+                        <li key={index} className='About-TagsList_tag'>
+                            {skill}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </>
+    );
+};

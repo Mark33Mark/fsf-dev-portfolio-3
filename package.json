@@ -1,40 +1,37 @@
 {
-  "name": "fsf-dev-portfolio-3",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://get.watsonised.me",
-  "scripts": {
-    "dev": "vite",
-    "build": "npm run prebuild && vite build",
-    "prebuild": "rm -rf dist/ && rm -rf build/",
-    "preview": "vite preview",
-    "vitest-preview": "vitest-preview",
-    "test": "vitest",
-    "test:coverage": "vitest --coverage",
-    "test:debug": "npm-run-all -p test vitest-preview",
-    "test:ui": "vitest --ui",
-    "predeploy": "npm run build",
-    "deploy": "npm run predeploy && gh-pages -d dist"
-  },
-  "dependencies": {
-    "postcss": "^8.5.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
-  },
-  "devDependencies": {
-    "@jest/expect-utils": "^29.7.0",
-    "@tailwindcss/vite": "^4.0.12",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/user-event": "^14.6.1",
-    "@vitejs/plugin-react-swc": "^3.8.0",
-    "@vitest/coverage-v8": "^3.0.8",
-    "@vitest/ui": "^3.0.8",
-    "gh-pages": "^6.3.0",
-    "sass": "^1.85.1",
-    "tailwindcss": "^4.0.12",
-    "vite": "^6.2.1",
-    "vite-plugin-react": "^4.0.1",
-    "vitest": "^3.0.8"
-  }
+    "name": "fsf-dev-portfolio-3",
+    "version": "0.1.0",
+    "type": "module",
+    "homepage": "https://get.watsonised.me",
+    "scripts": {
+        "dev": "vite",
+        "netlify:up": "set NETLIFY_ENABLE_LOCAL_BLOBS=false && netlify dev",
+        "build": "npm run prebuild && vite build",
+        "prebuild": "rm -rf dist/",
+        "preview": "vite preview",
+        "vitest-preview": "vitest-preview",
+        "test": "vitest",
+        "test:coverage": "vitest --coverage",
+        "test:debug": "npm-run-all -p test vitest-preview",
+        "test:ui": "vitest --ui"
+    },
+    "dependencies": {
+        "jose": "^6.2.3",
+        "nano": "^11.0.5",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "react-error-boundary": "^6.1.2"
+    },
+    "devDependencies": {
+        "@jest/expect-utils": "^30.4.1",
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/user-event": "^14.6.1",
+        "@vitejs/plugin-react": "^6.0.2",
+        "@vitest/coverage-v8": "^4.1.8",
+        "@vitest/ui": "^4.1.8",
+        "cross-env": "^10.1.0",
+        "sass": "^1.100.0",
+        "vite": "^8.0.16",
+        "vitest": "^4.1.8"
+    }
 }

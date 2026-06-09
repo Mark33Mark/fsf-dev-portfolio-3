@@ -1,22 +1,20 @@
 ![Mark Watson](./assets/abstract_white_banner.jpg)
 
 [![webpage](./assets/myWebpage.png)](https://get.watsonised.com)  [![github](./assets/PNG_github_commits_logo.png)](https://github.com/Mark33Mark/fsf-dev-portfolio-3) 
-
-# USYD-FSF Week 20 Project   
  
-## React Portfolio
+# React Portfolio
 
 ### Table of Contents  
   
-   1. [Project Description](#1-description)
-   2. [Application Features](#2-features)
-   3. [Installation](#3-installation)
-   4. [Usage](#4-usage)
-   5. [Credits](#5-credits)
-   6. [License](#6-license)
-   7. [Repository Status](#7-github-repo-status)
-   8. [Contribute](#8-how-to-contribute)
-   9. [Tests](#9-tests)
+   1.  [Project Description](#1-description)
+   2.  [Application Features](#2-features)
+   3.  [Installation](#3-installation)
+   4.  [Usage](#4-usage)
+   5.  [Credits](#5-credits)
+   6.  [License](#6-license)
+   7.  [Repository Status](#7-github-repo-status)
+   8.  [Contribute](#8-how-to-contribute)
+   9.  [Tests](#9-tests)
    10. [Checklist](#10-checklist)
 
 ---
@@ -25,49 +23,20 @@
 
 **What is this project?**  
 
-*  A portfolio application programmed using the React JavaScript library, thanks Facebook (now Meta) for developing React:
+*  A portfolio application programmed using React:
    
    [My Portfolio developed with React:  get.watsonised.me](https://get.watsonised.me)  
    
- 
-**Why this project?**  
-
-* As a web developer you're part of a community and a well setup portfolio page is an important place to share your projects and help you with applying for jobs or working as a freelancer but also to share your work with other developers and collaborate on projects.
-
-*  This portfolio demonstrates some of my new React skills to help set me apart from other developers whose portfolios don’t use the latest technologies.
 
 **What problem does this project solve?**  
 
-* Uses current technologies to demonstrate some of my React skills.
-
-**Lessons learnt?**  
-
-* You need to have a good plan to set out the structure / modules for your page.  
-* I'd not used Tailwind CSS before but after this project I'm a big fan.  It was reasonably simple to transition from Bootstrap to this.  It is easily configurable, well supported by an excellent on line manual and quick to implement.  
-* I couldn't get Netlify to work for the form, I gave it a good try however the form for the moment is not passing through the Netlify server for handling.  Console logs a 405 server error, meaning it gets to the Netlify server but is rejected.  Most likely an issue with the way the data is being sent, I did follow Netlify's walkthrough.  Lesson here is that it wasn't as straightforward as Netlify will have you believe, particularly for React development.
-* React is amazingly flexible with how you can handle some processes.  For example this portfolio has 3 different methods for handling icons, Heroicons and Icomoon.  Another example is the many styling methods available.  
+* Uses current technologies to help recruiters find me and determine if I'm a potential candidate.
 
 ---
 
 ### 2. Features  
 
 The portfolio satisfies all of the user acceptance criteria as listed in the [Checklist](#10-checklist) below.  
-
-![walkthrough video](./assets/myPortfolio_walkthrough.gif)
-
-### Responsiveness:  
-
-#### Large Screens
-
-![large screen](./assets/Screenshot1_largeScreen.jpg)
-
-#### Medium Screens
-
-![medium screen](./assets/Screenshot1_mediumScreen.jpg)
-
-#### Small Screens
-
-![small screen](./assets/Screenshot1_smallScreen.jpg)
 
 ---
 
@@ -101,12 +70,8 @@ You can modify the code as you need.
 
 ### 5. Credits  
 
-*  React online documentation,
-*  Stack Overflow forums,
-*  Tailwind online documentation,
-*  https://www.freecodecamp.org/news/build-portfolio-website-react/
-*  https://ibaslogic.com/react-tutorial-for-beginners/
-*  https://justinramel.com/how-to-use-heroicons-in-your-react-app
+*  React online documentation
+*  Gemini AI
 
 ---
 

@@ -1,174 +1,188 @@
-
-import React, {useState} from "react";
-
-// Import helper functions to check if the email is valid
-import { validateEmail } from '../../utils/helpers';
-
+import { useEffect, useState } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { validateEmail } from '../../utilities';
 
 const encode = data => {
-  return Object.keys(data)
-    .map( (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+        .join('&');
 };
 
-
 export const Contact = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const [messageCharacters, setMessageCharacters] = useState(0);
+    const [errorMessage, setErrorMessage] = useState('');
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState('');
+    console.log('screen width = ', isMobile);
 
-  const handleInputChange = (e) => {
-    // Getting the value and name of the input which triggered the change
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
+    const handleInputChange = event => {
+        const { target } = event;
+        const inputType = target.name;
+        const inputValue = target.value;
 
-    // Based on the input type, we set the state of either email, username, and password
-    if (inputType === 'email') {
-      setEmail(inputValue);
-    } else if (inputType === 'name') {
-      setName(inputValue);
-    } else {
-      setMessage(inputValue);
-    }
-  };
+        if (inputType === 'message') {
+            const {
+                target: { style },
+            } = event;
+            setMessageCharacters(target.value.length);
+            console.log('target = ', target);
+            target.value.length >= 490 ?
+                target.classList.add('maximumCharactersReached')
+            :   target.classList.remove('maximumCharactersReached');
+        }
 
+        if (inputType === 'email') {
+            setEmail(inputValue);
+        } else if (inputType === 'name') {
+            setName(inputValue);
+        } else {
+            setMessage(inputValue);
+        }
+    };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1000);
+        };
 
-    // validate email and name. If so we set an error message to be displayed on the page.
-    if ( !validateEmail( email ) || !name || !message ) {
-      setErrorMessage('Please provide a name, valid email and message for your message to be sent.');
-      
-      // exit out of this code block if something is wrong.
-      return;
-    }
+        // Listen for window resize
+        window.addEventListener('resize', handleResize);
 
-    console.log('form data submitted = ', {name, email, message, encoded: encode({ "form-name": "contact", name, email, message })});
+        // Call handler right away so state updates with initial window size
+        handleResize();
 
-    // e.target.reset();
-  
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", name, email, message }),
-    })
-      .then((res) => {
-                // alert("Message sent!");
-                // setErrorMessage("Thanks for emailing me, I'll respond as soon as possible.");
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
-                console.log('res = ', res.status);
+    const handleSubmit = event => {
+        event.preventDefault();
 
-                if(res.status !== 200) {
-                  e.target.reset(); 
-                  setErrorMessage("Unfortunately your form didn't submit.\n\nSomething is broken, please don't reattempt.");
+        if (!validateEmail(email) || !name || !message) {
+            setErrorMessage('Please provide a name, valid email and message htmlFor your message to be sent.');
+            return;
+        }
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode({ 'form-name': 'contact', name, email, message }),
+        })
+            .then(res => {
+                if (res.status !== 200) {
+                    event.target.reset();
+                    setErrorMessage(
+                        "Unfortunately, the form didn't submit.\n\nWe're aware of the issue and working to fix it.  Please don't reattempt."
+                    );
                 } else {
-                  e.target.reset(); 
-                  setErrorMessage("Success! Thanks for emailing me, I'll respond as soon as possible.");
+                    event.target.reset();
+                    setErrorMessage("Success! Thanks htmlFor emailing me, I'll respond as soon as possible.");
                 }
+            })
+            .catch(error => alert(error));
+    };
 
-              })
-      .catch( error => alert( error ) );
-  };
+    const iFrameSrcParams = {
+        lat: -33.858,
+        lng: 151.208,
+        z: isMobile ? 11 : 13,
+        t: '<span>Mark Watson</span><span> | full stack web developer | </span>',
+        m: 'Located in Sydney, creating digital assets to your specification.',
+        c: false, // route button controller - default is false, which removes the 'route' button.
+        p: !isMobile, // popup controller - default is false, which hides the info popup.  User can click marker htmlFor it to appear.
+    };
 
-  return (
+    const mapContent = (
+        <iframe
+            width='100%'
+            height='100%'
+            title="map of Mark Watson's location"
+            className='Contact-Iframe'
+            src={`https://map.watsonised.me?${new URLSearchParams(iFrameSrcParams).toString()}`}
+            sandbox='allow-scripts allow-same-origin'
+        />
+    );
 
-    <section id="contact" className="relative sm:px-24 px-5 flex-grow  max-w-screen-xl sm:text-xl md:text-2xl text-base">
+    return (
+        <>
+            <h1 className='Contact-PageHeading'>Get In Touch</h1>
+            <div className='Contact-Container'>
+                <div className={'Contact-Map'}>{mapContent}</div>
 
-      <h1 className="font-medium flex justify-evenly text-(--royal-blue)  subpixel-antialiased sm:text-5xl md:text-7xl text-3xl text-center mb-4">
-        Get In Touch
-      </h1>
-      <div className="container  py-10 mx-auto flex md:flex-nowrap w-full flex-wrap">
-        <div className="lg:w-2/3 w-full overflow-hidden sm:mr-10 flex items-end justify-start ">
-          
-          <iframe
-            width="100%"
-            height="100%"
-            title="map"
-            className="inset-0"
-            frameBorder={0}
-            marginHeight={0}
-            marginWidth={0}
-            style={{ filter: "opacity(0.7)" }}
-            allowFullScreen=""
-            src="https://www.google.com/maps/embed/v1/place?q=11+Stratford+Place+St+Ives+NSW+Australia&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&zoom=11"
-          />
+                <form onSubmit={handleSubmit} className='Contact-Form' method='POST'>
+                    <input type='hidden' name='form-name' value='contact' />
+                    <p className='Contact-FormDescription Contact-FormDescription_full'>
+                        Please fill in all fields. Click / press Submit when done:
+                    </p>
 
-        </div>
-        
-        <form
-          onSubmit={handleSubmit}
-          className="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-0 mt-2 md:mt-0"
-          method="POST"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p className="leading-relaxed mb-5">
-            Let's communicate. Please use the form below to send me a message and I'll get back to you as soon as I can.
-          </p>
-          
-          <div className="relative mb-4">
-            <label htmlFor="name" className="leading-7 text-sm text-gray-800">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="...your name"
-              className="w-full bg-gray-300 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              onChange={handleInputChange}
-              onSelect={ e => setErrorMessage('')}
-            />
-          </div>
-          
-          <div className="relative mb-4">
-            <label htmlFor="email" className="leading-7 text-sm text-gray-800">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="...your email address"
-              className="w-full bg-gray-300 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-900 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              onChange={handleInputChange}
-              onSelect={ e => setErrorMessage('')}
-            />
-          </div>
-          
-          <div className="relative mb-4">
-            <label
-              htmlFor="message"
-              className="leading-7 text-sm text-gray-800">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="...write your message here"
-              className="w-full bg-gray-300 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-900 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-              onChange={handleInputChange}
-              onSelect={ e => setErrorMessage('')}
-            />
-          </div>
+                    <div className='Contact-ContainerInput'>
+                        <input
+                            className='Contact-InputField Contact-InputField_name'
+                            id='name'
+                            name='name'
+                            autoComplete='name'
+                            placeholder='your name'
+                            type='text'
+                            onChange={handleInputChange}
+                            onSelect={e => setErrorMessage('')}
+                            required
+                        />
+                        <label className='Contact-InputLabel' htmlFor='name'>
+                            Name
+                        </label>
+                        <small className='Contact-HintInputField'>Let me know who I'm communicating with.</small>
+                    </div>
 
-          <button
-            type="submit"
-            className="text-white bg-(--royal-blue) border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-            Submit
-          </button>
-        </form>
-      </div>
+                    <div className='Contact-ContainerInput'>
+                        <input
+                            className='Contact-InputField Contact-InputField_email'
+                            id='email'
+                            name='email'
+                            type='email'
+                            autoComplete='email'
+                            placeholder='your email'
+                            onChange={handleInputChange}
+                            onSelect={e => setErrorMessage('')}
+                            required
+                        />
+                        <label className='Contact-InputLabel' htmlFor='email'>
+                            Email
+                        </label>
+                        <small className='Contact-HintInputField'>Your email address will not be shared.</small>
+                    </div>
 
-      {errorMessage && (
-        <div className="float-right mr-16 text-black bg-gray-300 w-60 rounded font-semibold p-5 text-base">
-          <p className="error-text">{errorMessage}</p>
-        </div>
-      )}
+                    <div className='Contact-ContainerInput Contact-ContainerInput_full'>
+                        <textarea
+                            className='Contact-TextareaField'
+                            id='message'
+                            name='message'
+                            type='text'
+                            rows='2'
+                            maxLength='500'
+                            placeholder='write your message here'
+                            onChange={handleInputChange}
+                            onSelect={e => setErrorMessage('')}
+                            required
+                        ></textarea>
+                        <label className='Contact-InputLabel' htmlFor='message'>
+                            Message{' '}
+                            <span className='Contact-TextareaFieldCharacterCount'>({messageCharacters} / 500)</span>
+                        </label>
+                        <small className='Contact-HintTextareaField'>What would you like to ask me?</small>
+                    </div>
+                    <button type='submit' className='Contact-FormSubmitButton Contact-FormSubmitButton_full'>
+                        Submit Form
+                    </button>
+                </form>
+            </div>
 
-    </section>
-  );
-}
+            {errorMessage && (
+                <div className='Contact-FormErrorContainer'>
+                    <p className='Contact-FormErrorMessage'>{errorMessage}</p>
+                </div>
+            )}
+        </>
+    );
+};

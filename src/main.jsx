@@ -1,13 +1,12 @@
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { PortfolioContainer } from './components';
+import './styling/styles.css';
 
-import React, { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { App } from './App';
-import './styles.css';
-
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById('root'));
 
 root.render(
-	<StrictMode>
-		<App />
-	</StrictMode>
+    <StrictMode>
+        <PortfolioContainer />
+    </StrictMode>
 );

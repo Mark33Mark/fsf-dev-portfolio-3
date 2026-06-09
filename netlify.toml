@@ -1,7 +1,12 @@
-[build]
-  command = "CI= npm run build"
+# 🌐 Global settings used by Netlify in the cloud for production
+[dev]
+  command = "npm run dev"
+  targetPort = 5555
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# 💻 Local development overrides used ONLY on your computer
+[context.dev]
+  publish = "public" # points netlify to the folder containing the _redirects file
+
+[build]
+  command = "npm run build"
+  publish = "dist"

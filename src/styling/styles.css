@@ -1,0 +1,901 @@
+:root {
+    view-transition-name: none; /* disable the default view-transition api's full page animation*/
+    --bg: #f7f7f7;
+    --brand-color: #7d410c;
+    --header-color: #1d314c;
+    --body-color: #443d3d;
+    --link-teal: #2e747a;
+    --link-teal-hover: #61a3ff;
+    --code-bg: #e5dfde;
+    --code-color: #2e747a;
+    --royal-blue: #61a3ff;
+    --title-bg: #004db8;
+    --button-hover: #e5dfde;
+
+    --COMPONENT_WIDTH: 86vw;
+    --MAX_WIDTH: 1200px;
+
+    --GRADIENT_ANGLE: 0deg;
+    --GLOW_CARD_BKG_DARK: #052b2f;
+    --GLOW_CARD_BKG_LIGHT: #f7f7f7;
+    --COLOUR_GRADE_HUE: 260;
+    --COLOUR_GRADE_100: oklch(0.917 0.04 var(--COLOUR_GRADE_HUE));
+    --COLOUR_GRADE_200: oklch(0.8521 0.08 var(--COLOUR_GRADE_HUE));
+    --COLOUR_GRADE_300: oklch(0.7886 0.12 var(--COLOUR_GRADE_HUE));
+    --COLOUR_GRADE_400: oklch(0.709 0.16 var(--COLOUR_GRADE_HUE));
+    --COLOUR_GRADE_500: oklch(0.6177 0.22 var(--COLOUR_GRADE_HUE));
+    --COLOUR_GRADE_600: oklch(0.5303 0.27 var(--COLOUR_GRADE_HUE));
+    --COLOUR_GRADE_700: oklch(0.4131 0.21 var(--COLOUR_GRADE_HUE));
+    --COLOUR_GRADE_800: oklch(0.2983 0.15 var(--COLOUR_GRADE_HUE));
+
+    --SLIDER_HEIGHT: clamp(0.85rem, 2svh, 1.5rem);
+}
+
+/* 
+ * ===============================
+ *  Page configuration
+ * =============================== 
+ */
+
+html,
+body {
+    margin: 0;
+    margin-block: 0;
+    padding: 0;
+    font-family:
+        ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+}
+
+body {
+    width: 100vw;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::view-transition {
+    pointer-events: none;
+}
+
+.portfolio-cards {
+    box-shadow: 0px 0px 20px 5px #828282;
+}
+
+.portrait {
+    text-shadow: 2px 2px 2px #ce5937;
+}
+
+/* 
+ * ===============================
+ *  view-transition API custom
+ * =============================== 
+ */
+
+/* set a unique view-transition-name ONLY to the dynamic content area */
+.PortfolioContainer-PageTransitionWrapper {
+    view-transition-name: page-content;
+    grid-area: main;
+    height: 100%;
+}
+
+/* customize the animation duration or style */
+::view-transition-old(page-content),
+::view-transition-new(page-content) {
+    animation-duration: 1.5s;
+}
+
+/*
+ * ===============================
+ *  PORTFOLIO CONTAINER COMPONENT
+ * =============================== 
+ */
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.PortfolioContainer.GlowingOutline {
+    border-radius: 0.3rem;
+
+    position: relative;
+    box-sizing: border-box;
+
+    background-color: var(--bg);
+    padding: 0;
+    margin: 0;
+    width: 86vw;
+    height: 94svh;
+    max-width: var(--MAX_WIDTH);
+
+    text-align: center;
+    display: grid;
+    grid-template-areas:
+        'header'
+        'quote'
+        'nav'
+        'main'
+        'footer';
+    grid-template-columns: auto;
+    grid-template-rows: clamp(2rem, 4svh, 7.5rem) clamp(4rem, 5svh, 6rem) clamp(1.5rem, 3svh, 4rem) auto clamp(
+            2.5rem,
+            5svh,
+            8rem
+        );
+    gap: 0.25rem;
+}
+
+.PortfolioContainer.GlowingOutline::before,
+.PortfolioContainer.GlowingOutline::after {
+    content: '';
+    position: absolute;
+    inset: clamp(-1.75rem, -1.5svh, -0.75rem);
+    z-index: -1;
+    background: conic-gradient(
+        from var(--angle),
+        var(--COLOUR_GRADE_100),
+        var(--COLOUR_GRADE_200),
+        var(--COLOUR_GRADE_300),
+        var(--COLOUR_GRADE_400),
+        var(--COLOUR_GRADE_500),
+        var(--COLOUR_GRADE_600),
+        var(--COLOUR_GRADE_700),
+        var(--COLOUR_GRADE_800),
+        var(--COLOUR_GRADE_100)
+    );
+    border-radius: 0.5rem;
+    animation: rotation 40s linear infinite;
+}
+
+.PortfolioContainer.GlowingOutline::after {
+    filter: blur(0.5rem);
+}
+
+@keyframes rotation {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* 
+ * ===============================
+ *  HEADER COMPONENT
+ * =============================== 
+ */
+
+.PageHeader {
+    grid-area: header;
+    width: var(--COMPONENT_WIDTH);
+    max-width: var(--MAX_WIDTH);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.PageHeader-Logo,
+.PageHeader-Portrait {
+    margin: 0 0.25rem;
+}
+
+.PageHeader-Logo_image,
+.PageHeader-Portrait_image {
+    height: clamp(2.1rem, 5svh, 5rem);
+    width: clamp(2.1rem, 5svh, 5rem);
+    margin-top: 0.75rem;
+    aspect-ratio: 1 / 1;
+}
+
+.PageHeader-Portrait_image {
+    margin-top: 1rem;
+    background: var(--COLOUR_GRADE_100);
+}
+
+/* 
+ * ===============================
+ *  QUOTE RESULT
+ * =============================== 
+ */
+
+.QuoteResult-FadeInWrapper {
+    animation: fadeIn 3s ease-in-out;
+    width: var(--COMPONENT_WIDTH);
+    max-width: var(--MAX_WIDTH);
+}
+
+.QuoteResult-QuoteText {
+    margin: 0;
+    margin-top: 0.25rem;
+    padding: 0;
+}
+
+.QuoteResult-QuoteContainer {
+    grid-area: quote;
+    width: 100%;
+    max-width: var(--MAX_WIDTH);
+    color: #4b5563;
+    font-size: clamp(0.75rem, 2vw, 1.1rem);
+    text-align: center;
+    height: clamp(4rem, 2svh, 6rem);
+
+    view-transition-name: quote-smooth-transition;
+}
+
+::view-transition-old(quote-smooth-transition),
+::view-transition-new(quote-smooth-transition) {
+    animation-duration: 2s;
+}
+
+.QuoteResult-QuoteAuthor {
+    font-style: italic;
+}
+
+/* 
+ * ===============================
+ *  NAVIGATION BAR
+ * =============================== 
+ */
+
+.NavIndex-Container {
+    grid-area: nav;
+    width: var(--COMPONENT_WIDTH);
+    max-width: var(--MAX_WIDTH);
+    height: clamp(1.5rem, 3svh, 4rem);
+}
+
+.NavIndex-Bar {
+    margin: 0 clamp(0.25rem, 2vw, 2rem);
+    display: grid;
+    align-items: center;
+    gap: clamp(0.25rem, 1vw, 1rem);
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 85vw;
+    height: 100%;
+}
+
+.NavIndex-Link_active:focus,
+.NavIndex-Link:focus {
+    background-color: var(--COLOUR_GRADE_500);
+    color: #333;
+    font-weight: 500;
+}
+
+.NavIndex-Link_active:hover,
+.NavIndex-Link:hover {
+    background-color: var(--COLOUR_GRADE_300);
+}
+
+.NavIndex-Link_active,
+.NavIndex-Link {
+    font-size: clamp(0.75rem, 2vw, 1.5rem);
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    color: #333;
+}
+
+.NavIndex-Link {
+    background-color: var(--COLOUR_GRADE_200);
+    font-weight: 400;
+}
+
+.NavIndex-Link_active {
+    background-color: var(--COLOUR_GRADE_700);
+    color: white;
+    font-weight: 600;
+}
+
+.PortfolioContainer-About_hidden,
+.PortfolioContainer-Portfolio_hidden,
+.PortfolioContainer-Contact_hidden,
+.PortfolioContainer-Resume_hidden {
+    display: none;
+}
+
+.PortfolioContainer-About_block,
+.PortfolioContainer-Portfolio_block,
+.PortfolioContainer-Contact_block,
+.PortfolioContainer-Resume_block {
+    width: var(--COMPONENT_WIDTH);
+    max-width: var(--MAX_WIDTH);
+}
+
+/* 
+ * ===============================
+ *  ABOUT PAGE
+ * =============================== 
+ */
+
+.PortfolioContainer-About_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 0.5rem;
+    height: clamp(32rem, 60svh, 90rem);
+    overflow-x: auto;
+}
+
+.About-PageHeading,
+.Portfolio-PageHeading,
+.Contact-PageHeading,
+.Resume-PageHeading {
+    text-shadow: -1px 2px 5px var(--COLOUR_GRADE_700);
+    font-weight: 700;
+    margin-block: 0;
+    font-size: clamp(1.25rem, 4vw, 3.5rem);
+    color: var(--COLOUR_GRADE_700);
+    padding: clamp(0.125rem, 1svh, 0.85rem);
+    padding-bottom: 0.5rem;
+}
+
+.About-ProfileContainer {
+    text-align: left;
+    color: var(--body-color);
+    line-height: 1.25;
+    padding: clamp(0.1rem, 3vw, 2rem);
+    padding-top: 0;
+    font-size: clamp(0.85rem, 3vw, 1.75rem);
+}
+
+.About-ProfileContainer p {
+    margin: clamp(0.5rem, 2svh, 2.5rem) 0;
+}
+
+.About-MyName {
+    font-style: italic;
+}
+
+.About-TagsList {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    color: var(--COLOUR_GRADE_500);
+    font-family: 'Inconsolata', monospace;
+    letter-spacing: 0.05em;
+}
+
+.About-TagsList_tag {
+    display: inline-block;
+    margin: clamp(0.25rem, 1vw, 1rem);
+    font-size: clamp(0.85rem, 1.5vw, 1.5rem);
+    font-weight: 700;
+}
+
+.About-TagsList_tag:before {
+    content: '#';
+}
+
+/* 
+ * ===============================
+ *  PORTFOLIO PAGE
+ * =============================== 
+ */
+
+#portfolio a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--COLOUR_GRADE_700);
+}
+
+/* 1. The Grid Parent - Now serves as the positioning boundary for mobile */
+.Portfolio-GalleryDisplay {
+    display: grid;
+    grid-template-columns: repeat(2, 6rem);
+    grid-template-rows: repeat(4, 6rem);
+    gap: 0.85rem;
+    justify-content: center;
+
+    /* allows text overlay to center itself relative to the whole grid on mobile */
+    position: relative;
+}
+
+.Portfolio-HeadingBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Portfolio-HeadingBlock svg {
+    height: clamp(1.5rem, 3vw, 3rem);
+    margin-top: 1rem;
+    color: var(--COLOUR_GRADE_600);
+}
+
+.Portfolio-Link {
+    width: 100%;
+}
+
+.Portfolio-ProjectLinksContainer {
+    display: flex;
+    width: 100%;
+}
+
+.Portfolio-GithubLink,
+.Portfolio-WebsiteLink {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--COLOUR_GRADE_300);
+}
+
+.Portfolio-GithubLink svg,
+.Portfolio-WebsiteLink svg {
+    height: clamp(2.5rem, 3vw, 3rem);
+    width: clamp(2.5rem, 3vw, 3rem);
+    margin-top: 1rem;
+    fill: var(--COLOUR_GRADE_300);
+}
+
+.Portfolio-TextDescription {
+    font-size: clamp(0.85rem, 1.5vw, 1.8rem);
+    margin: clamp(1rem, 3vw, 3rem) 0;
+}
+
+/* 2. The Project Container */
+.Portfolio-ProjectContainer {
+    /* We REMOVE position: relative here for mobile screens so the absolute child looks up to the grid parent instead */
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.Portfolio-ProjectScreengrab {
+    display: block;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* 3. The Text Overlay Container (Mobile First) */
+.Portfolio-ProjectDescriptionContainer {
+    /* Fixed/Pinned directly to the center of the .Portfolio-GalleryDisplay grid */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfect centering trick */
+
+    /* Give it a safe width that won't cause overflow on 310px screens */
+    width: 90%;
+    max-width: var(--MAX_WIDTH);
+    height: auto;
+    min-height: 200px;
+
+    /* Layout inside the text box */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    z-index: 10; /* Ensures it sits on top of all other grid images */
+
+    /* Styling */
+    background-color: rgba(0, 0, 0, 0.95); /* Slightly darker for readability on mobile */
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+
+    /* Hide by default */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.Portfolio-ProjectDescriptionTitle {
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.Portfolio-ProjectDescriptionSubtitle {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.Portfolio-ProjectDescription {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Trigger the overlay */
+.Portfolio-ProjectContainer:hover .Portfolio-ProjectDescriptionContainer,
+.Portfolio-ProjectContainer:focus-within .Portfolio-ProjectDescriptionContainer {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 4. Desktop Restore (Responsive Design) */
+/* When the screen is large enough, switch back to the card-specific overlay style */
+@media (min-width: 680px) {
+    .Portfolio-GalleryDisplay {
+        position: static; /* Remove grid boundaries */
+        grid-template-columns: repeat(3, 11rem);
+        grid-template-rows: repeat(3, 11rem);
+        gap: 1.2rem;
+    }
+
+    .Portfolio-ProjectContainer {
+        position: relative; /* Put boundaries back on the individual card */
+    }
+
+    .Portfolio-ProjectDescriptionContainer {
+        /* Reset centering physics */
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        border-radius: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+@media (min-width: 850px) {
+    .Portfolio-GalleryDisplay {
+        position: static; /* Remove grid boundaries */
+        grid-template-columns: repeat(3, clamp(11rem, 20vw, 20rem));
+        grid-template-rows: repeat(3, clamp(11rem, 20vw, 20rem));
+        gap: 2rem;
+    }
+}
+
+/* 
+ * ===============================
+ *  CONTACT PAGE
+ * =============================== 
+ */
+
+#contact {
+    --FORM_CARD_BACKGROUND: rgba(250, 250, 250, 1);
+    --FORM_TEXT_COLOUR: rgba(15, 25, 40, 1);
+    --FORM_BORDER_COLOUR: rgba(210, 215, 220, 1);
+    --FOCUS_OUTLINE: rgba(35, 175, 20, 0.6);
+    --FOCUS_WITHIN_OUTLINE: rgba(35, 175, 20, 0.3);
+    --PLACEHOLDER_FONT_COLOR: rgba(155, 160, 180, 0.95);
+    --FORM_BORDER_RADIUS: 0.2rem;
+}
+
+.Contact-Map {
+    height: clamp(10rem, 20svh, 20rem);
+
+    /* Set initial state to transparent */
+    opacity: 0;
+
+    /* Configure the animation */
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+
+    /* Keeps the element visible (opacity: 1) after the animation ends */
+    animation-fill-mode: forwards;
+}
+
+.Contact-Iframe {
+    display: block; /* Eliminates the vertical text-baseline gap */
+    border: none; /* Removes the default 2px border adding to the 100% size */
+    box-sizing: border-box; /* Forces padding/borders to calculate inside the 100% */
+}
+
+.Contact-Form {
+    display: grid;
+    gap: 0.25rem;
+    background: var(--FORM_CARD_BACKGROUND);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: -0.125rem 0.25rem 0.25rem 0.2rem var(--COLOUR_GRADE_100);
+    transition: box-shadow 1s ease;
+    margin: 0.75rem;
+}
+
+.Contact-Form:focus-within {
+    box-shadow: -0.125rem 0.25rem 0.5rem 0.5rem var(--FOCUS_WITHIN_OUTLINE);
+    transition: box-shadow 1s ease;
+}
+
+.Contact-FormDescription {
+    font-size: clamp(0.85rem, 3vw, 1.75rem);
+    text-align: left;
+    line-height: 1.2;
+}
+
+.Contact-ContainerInput {
+    display: grid;
+    justify-items: start;
+}
+
+.Contact-WrapperInput {
+    display: grid;
+    justify-items: start;
+    grid-template-columns: 4rem 1fr;
+    width: 100%;
+}
+
+.Contact-HintInputField,
+.Contact-HintTextareaField {
+    opacity: 0;
+    transition: opacity 1s ease;
+    font-size: 0.75rem;
+    padding-top: 0.25rem;
+}
+
+.Contact-InputField,
+.Contact-TextareaField {
+    font-size: 0.85rem;
+    width: 100%;
+    padding: 0.125rem 0.25rem;
+    border: 1px solid var(--FORM_BORDER_COLOUR);
+    border-radius: var(--FORM_BORDER_RADIUS);
+    color: var(--FORM_TEXT_COLOUR);
+    background: #fff;
+    outline: none;
+    transition: border-color 180ms ease;
+}
+
+.Contact-TextareaField.maximumCharactersReached + .Contact-InputLabel {
+    color: red;
+}
+
+.Contact-TextareaField {
+    resize: vertical;
+}
+
+.Contact-InputField::placeholder,
+.Contact-TextareaField::placeholder {
+    color: var(--PLACEHOLDER_FONT_COLOR);
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.Contact-InputField:focus::placeholder,
+.Contact-TextareaField:focus::placeholder {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.Contact-InputField:focus,
+.Contact-TextareaField:focus {
+    box-shadow: 0 0 0 0.25rem var(--FOCUS_OUTLINE);
+}
+
+.Contact-InputField:focus ~ .Contact-HintInputField,
+.Contact-TextareaField:focus ~ .Contact-HintTextareaField {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.Contact-FormSubmitButton {
+    width: 98%;
+    margin: 0 auto;
+    padding: 0.15rem 0.3rem;
+    cursor: pointer;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 0.125rem;
+    font-size: 0.85rem;
+    background: var(--COLOUR_GRADE_100);
+    color: #eee;
+}
+
+.Contact-FormSubmitButton:hover {
+    padding: 0.15rem 0.3rem;
+    background: var(--COLOUR_GRADE_500);
+}
+
+.Contact-FormErrorContainer {
+    position: absolute;
+    top: 50svh;
+    width: 100%;
+    height: 15rem;
+    background: #ccc;
+    padding: 0.5rem;
+}
+
+/* Define the animation behavior */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(0.5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ✅ Adjust UI TO 2-columns when screen width increases */
+@media (min-width: 1000px) {
+    .Contact-Form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .Contact-Map {
+        height: clamp(30rem, 65svh, 70rem);
+    }
+
+    .Contact-InputField_name {
+        margin-right: 0.5rem;
+    }
+
+    .Contact-InputField_email {
+        margin-left: 0.5rem;
+        width: 98.5% !important;
+    }
+
+    .Contact-FormErrorContainer {
+        top: 27svh;
+        height: 16rem;
+    }
+
+    .Contact-PasswordReveal {
+        transform: translate(825%, 110%);
+    }
+
+    .Contact-FormSubmitButton_full,
+    .Contact-TextareaField_full,
+    .Contact-FormDescription_full,
+    .Contact-ContainerInput_full {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ========================================================= */
+
+/* establish positioning context for the label */
+.Contact-ContainerInput {
+    position: relative;
+    margin-top: 0.5rem; /* provides headroom for the label when it floats up */
+    display: flex;
+    flex-direction: column;
+}
+
+.Contact-InputField,
+.Contact-TextareaField {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.25rem;
+    padding-left: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.125rem;
+    font-size: 0.85rem;
+    background: transparent;
+    order: 1; /* forces the visual stacking order */
+}
+
+/* label base state - located inside the input field */
+.Contact-InputLabel {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    opacity: 0;
+    font-size: 0.75rem;
+    font-weight: 750;
+    background-color: var(--bg); /* matches page background to hide input field's border */
+    padding: 0 0.25rem;
+    transition: 0.8s ease all;
+    pointer-events: none; /* allow user to click "through" the label to the focus textarea */
+    order: 2;
+}
+
+/* floating state: triggered on focus or when text is typed */
+.Contact-InputField:focus + .Contact-InputLabel,
+.Contact-InputField:not(:placeholder-shown) + .Contact-InputLabel {
+    top: -0.75rem; /* moves up into the border line */
+    left: 0.25rem;
+    font-size: 0.75rem;
+    opacity: 1;
+}
+
+.Contact-TextareaField:focus + .Contact-InputLabel,
+.Contact-TextareaField:not(:placeholder-shown) + .Contact-InputLabel {
+    top: -0.75rem; /* moves up into the border line */
+    left: 0.25rem;
+    font-size: 0.75rem;
+    opacity: 1;
+}
+
+/* hides label if input field doesn't have focus */
+.Contact-InputField:not(:placeholder-shown):not(:focus) + .Contact-InputLabel,
+.Contact-TextareaField:not(:placeholder-shown):not(:focus) + .Contact-InputLabel {
+    opacity: 0;
+}
+
+.Contact-HintInputField,
+.Contact-HintTextareaField {
+    margin-top: 0.25rem;
+    padding: 0;
+    font-size: 0.75rem;
+    text-align: left;
+    order: 3;
+}
+
+/* 
+ * ===============================
+ *  RESUME PAGE
+ * =============================== 
+ */
+
+.Resume-Description {
+    margin: clamp(0.5rem, 1svh, 2.5rem) 0;
+    margin-top: 0;
+    margin-left: 0.5rem;
+    display: flex;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.2;
+}
+
+.Resume-DownloadLink svg {
+    height: clamp(1.75rem, 4vw, 3rem);
+    color: var(--COLOUR_GRADE_700);
+}
+
+/* 
+ * ===============================
+ *  FOOTER COMPONENT
+ * =============================== 
+ */
+
+.Footer-Container {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--COMPONENT_WIDTH);
+    max-width: var(--MAX_WIDTH);
+    color: var(--COLOUR_GRADE_500);
+    margin-bottom: 0.25rem;
+}
+
+.Footer-Contacts_contact-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Footer-ContactLink:hover:before,
+.Footer-ContactLink:focus:before {
+    transform: scale(0) translateY(0);
+}
+
+.Footer-ContactIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(1.75rem, 5vw, 7rem);
+    margin: 0 0.5rem;
+    transition: all 0.5s ease-in-out;
+    color: var(--COLOUR_GRADE_500);
+}
+
+.Footer-ContactIcon:hover,
+.Footer-ContactIcon:focus {
+    color: var(--COLOUR_GRADE_700);
+    transform: scale(1.7) translateY(-20%);
+}
+
+.Footer-Contact_mobile-icon svg {
+    width: clamp(1.5rem, 5.85vw, 6.85rem);
+}
+
+.Footer-Contact_whatsapp-icon svg {
+    width: clamp(1.4rem, 5.85vw, 6.5rem);
+}
+
+.Footer-Contact_github-icon svg {
+    width: clamp(2.1rem, 15vw, 10rem);
+}
+
+/* --------------------------------------------------------------- 
+ * That's it.
+ * --------------------------------------------------------------- */

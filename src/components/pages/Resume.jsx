@@ -1,55 +1,35 @@
-
-import React, { useState } from 'react';
-
-import { DocDownloadIcon } from "../Icons";
-
+import { useState } from 'react';
+import { DocDownloadIcon } from '../Icons';
+import { ResumeDoc } from '../ResumeDoc';
 
 export const Resume = () => {
+    const [active, setActive] = useState(true);
 
+    const handleChangeActive = () => {
+        setActive(previousPage => {
+            return !previousPage;
+        });
+    };
 
-  const [active, setActive] = useState(true);
+    return (
+        <>
+            <div className='Resume-Container'>
+                <h1 className='Resume-PageHeading'>Resumé</h1>
+                <p className='Resume-Description'>
+                    Click the download icon to get a copy:
+                    <a
+                        href='../assets/resume_MarkWatson.pdf'
+                        target='_blank'
+                        className='Resume-DownloadLink'
+                        aria-label='download a copy of the resumé for Mark Watson'
+                        alt='download a copy of the resumé for Mark Watson'
+                    >
+                        <DocDownloadIcon />
+                    </a>
+                </p>
+            </div>
 
-  const handleChangeActive = () => {
-    setActive( previousPage => { return !previousPage; });
-  };
-
-
-  return (
-    <section id="contact" className="sm:px-10 px-5 flex-grow  max-w-screen-xl sm:text-xl md:text-2xl text-base">
-
-      <div className="flex flex-row w-full justify-center items-center mb-7">
-        <h1 className="mx-16 font-medium text-(--royal-blue) subpixel-antialiased sm:text-4xl md:text-6xl text-2xl">
-          Resume
-        </h1>
-        
-      </div>
-      <p className="relative mb-3 md:px-32 px-10">
-        Clicking on the page below will scroll through the pages of my resume. 
-        You can also download my resume by clicking the following icon:
-        <a href="../assets/resume_MarkWatson.pdf" target="_blank" className="download absolute pl-5">
-          <DocDownloadIcon />
-        </a>
-      </p>
-
-
-      <div className="pt-5 flex justify-center">
-        { 
-          active 
-          ? ( <img
-                className="active " 
-                src="../../assets/resume_page1.jpg"
-                alt="Mark Watson portrait"
-                onClick={() => handleChangeActive()}
-            /> )
-          : ( <img
-                className="inactive" 
-                src="../../assets/resume_page2.jpg"
-                alt="Mark Watson portrait"
-                onClick={() => handleChangeActive()}
-            /> )
-        }
-      </div>
-
-    </section>
-  );
-}
+            <ResumeDoc />
+        </>
+    );
+};

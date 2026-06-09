@@ -1,56 +1,40 @@
+import { useEffect } from 'react';
 
-import React from 'react';
+export const NavIndex = props => {
+    const { currentPage, handlePageChange } = props;
 
-export const NavIndex = ({ currentPage, handlePageChange }) => {
-
-  return (
-    <div className="navigator text-base sm:text-2xl flex place-content-center max-w-screen-xl pb-8">
-        |
-        <a
-          href="#about"
-          onClick={() => handlePageChange('About')}
-
-          className={currentPage === 'About' ? 'about page-link active' : 'about page-link'}
-          style={{paddingLeft: "20px", paddingRight: "20px"}}
-        >
-          About  
-        </a>
-        |
-
-
-        <a
-          href="#portfolio"
-          onClick={() => handlePageChange('Portfolio')}
-
-          className={currentPage === 'Portfolio' ? 'page-link active' : 'page-link'}
-          style={{paddingLeft: "20px", paddingRight: "20px"}}
-        >
-          Portfolio  
-        </a>
-
-        |
-
-        <a
-          href="#contact"
-          onClick={() => handlePageChange('Contact')}
-
-          className={currentPage === 'Contact' ? 'page-link active' : 'page-link'}
-          style={{paddingLeft: "20px", paddingRight: "20px"}}
-        >
-          Contact    
-        </a>
-        |
-        <a
-          href="#resume"
-
-          onClick={() => handlePageChange('Resume')}
-          className={currentPage === 'Resume' ? 'page-link active' : 'page-link'}
-          style={{paddingLeft: "20px", paddingRight: "20px"}}
-        >
-          Resume  
-        </a>
-        |
-
-    </div>
-  );
-}
+    return (
+        <nav className='NavIndex-Container'>
+            <div className="NavIndex-Bar">
+            <a
+                href='#about'
+                onClick={() => handlePageChange('About')}
+                className={'NavIndex-Link' + (currentPage === 'About' ? '_active' : '')}
+            >
+                About
+            </a>
+            <a
+                href='#portfolio'
+                onClick={() => handlePageChange('Portfolio')}
+                className={'NavIndex-Link' + (currentPage === 'Portfolio' ? '_active' : '')}
+            >
+                Portfolio
+            </a>
+            <a
+                href='#contact'
+                onClick={() => handlePageChange('Contact')}
+                className={'NavIndex-Link' + (currentPage === 'Contact' ? '_active' : '')}
+            >
+                Contact
+            </a>
+            <a
+                href='#resume'
+                onClick={() => handlePageChange('Resume')}
+                className={'NavIndex-Link' + (currentPage === 'Resume' ? '_active' : '')}
+            >
+                Resumé
+            </a>
+            </div>
+        </nav>
+    );
+};
