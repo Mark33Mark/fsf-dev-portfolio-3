@@ -16,8 +16,6 @@ export const Contact = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
 
-    console.log('screen width = ', isMobile);
-
     const handleInputChange = event => {
         const { target } = event;
         const inputType = target.name;

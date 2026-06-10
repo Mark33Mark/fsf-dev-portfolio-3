@@ -1,11 +1,45 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-    plugins: [react() ],
+    plugins: [
+        react(),
+        VitePWA({
+            registerType: 'autoUpdate', // updates the service worker when changes detected
+            injectRegsiter: 'null', // I'm using my own custom service worker registration in the app's entry point
+            includeAssets: ['Logo.svg', 'apple_touch_icon.png', 'mask_icon.svg'],
+            manifest: {
+                name: "Mark Watson's Portfolio",
+                short_name: 'MW Portfolio',
+                description: "Mark Watson's portfolio, a highly skilled full stack developer.",
+                orientation: 'any',
+                theme_color: '#fcf000',
+                icons: [
+                    {
+                        src: 'mask_icon.svg',
+                        sizes: 'any',
+                        type: 'image/svg+xml',
+                        purpose: 'maskable',
+                    },
+                    {
+                        src: 'pwa-192x192.png',
+                        sizes: '192x192',
+                        type: 'image/png',
+                    },
+                    {
+                        src: 'pwa-512x512.png',
+                        sizes: '512x512',
+                        type: 'image/png',
+                    },
+                ],
+            },
+        }),
+    ],
     server: {
         open: true,
         port: 5555,
+        host: true,
         strictPort: true,
         watch: {
             // completely block Vite from tracking heavy node_modules folders over SMB
