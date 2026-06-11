@@ -516,11 +516,11 @@ body {
     pointer-events: auto;
 }
 
-/* 4. Desktop Restore (Responsive Design) */
+/* 4. Desktop Restore */
 /* When the screen is large enough, switch back to the card-specific overlay style */
 @media (min-width: 650px) {
     .Portfolio-GalleryDisplay {
-        position: static; /* Remove grid boundaries */
+        position: relative; /* Remove grid boundaries */
         grid-template-columns: repeat(4, clamp(7.5rem, 11vw, 11rem));
         grid-template-rows: repeat(2, clamp(7.5rem, 11vw, 11rem));
         gap: 1.2rem;
@@ -536,11 +536,12 @@ body {
     }
 
     .Portfolio-ProjectContainer {
-        position: absolute; /* Put boundaries back on the individual card */
+        position: relative;
     }
 
     .Portfolio-ProjectDescriptionContainer {
         /* Reset centering physics */
+        position: absolute;
         top: 0;
         left: 0;
         transform: none;
