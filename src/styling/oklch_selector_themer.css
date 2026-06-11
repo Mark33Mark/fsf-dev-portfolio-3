@@ -46,6 +46,7 @@ input[type='range'] {
     height: var(--SLIDER_HEIGHT);
     margin: 0; /* removes default browser margins that offset alignment */
     -webkit-appearance: none;
+    appearance: none;
 
     /* the adjustment formula: (half_thumb_width - (percent * thumb_width / 100))*/
     background: linear-gradient(
@@ -88,6 +89,7 @@ input[type='range']::-moz-range-progress {
 
 input[type='range']::-moz-range-thumb {
     -webkit-appearance: none;
+    appearance: none;
     height: 2rem;
     width: 2rem;
     background: var(--COLOUR_GRADE_500);
@@ -127,13 +129,13 @@ input[type='range']::-moz-range-thumb {
     padding-left: 0.5rem;
     padding-bottom: 0.25rem;
     height: unset;
-    width: 5rem;
+    width: clamp(3rem, 4vw, 5rem);;
 }
 
 .OklchSelector-Container:has(.OklchSelector-TrackContainer_vertical input[type='range'])::before {
     content: "∆";
     position: absolute;
-    transform: translate(15%, -30%);
+    transform: translate(5%, -30%);
 }
 
 .OklchSelector-Container:has(.OklchSelector-TrackContainer_vertical input[type='range'])::after {
@@ -147,7 +149,7 @@ input[type='range']::-moz-range-thumb {
     top: unset;
     /* bottom: calc((var(--value) * 1%) + (1rem - (var(--value) * 0.02rem))); */
     /* transform: translate(75%, -10%); */
-    margin-left: clamp(1.7rem, 4vw, 3rem);
-    margin-top: clamp(1rem, 1.25vw, 1.25rem);
+    margin-left: clamp(1.7rem, 4vw, 2.5rem);
+    margin-top: clamp(0.75rem, 1.25vw, 1.125rem);
     color: var(--COLOUR_GRADE_600);
 }

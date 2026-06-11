@@ -1,6 +1,6 @@
-![Mark Watson](./assets/abstract_white_banner.jpg)
+![Mark Watson](./public/assets/readme_assets/abstract_white_banner.webp)
 
-[![webpage](./assets/myWebpage.png)](https://get.watsonised.com)  [![github](./assets/PNG_github_commits_logo.png)](https://github.com/Mark33Mark/fsf-dev-portfolio-3) 
+[![webpage](./public/assets/readme_assets/myWebpage.webp)](https://get.watsonised.com)  [![github](./public/assets/readme_assets/PNG_github_commits_logo.webp)](https://github.com/Mark33Mark/fsf-dev-portfolio-3) 
  
 # React Portfolio
 

@@ -5,7 +5,7 @@
  */
 .ResumeDoc {
     max-width: 73rem; /* 1200px - 32px = 1168px */
-    height: clamp(23rem, 50svh, 55rem);
+    height: clamp(21.5rem, 50svh, 55rem);
     margin: 0 auto;
     padding: clamp(0.75rem, 1.5vw, 1.5rem);
     background-color: #ffffff;

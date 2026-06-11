@@ -16,7 +16,7 @@ export const Resume = () => {
             <div className='Resume-Container'>
                 <h1 className='Resume-PageHeading'>Resumé</h1>
                 <p className='Resume-Description'>
-                    Click the download icon to get a copy:
+                    Click the download icon to get a copy on your device:
                     <a
                         href='../assets/resume_MarkWatson.pdf'
                         target='_blank'
