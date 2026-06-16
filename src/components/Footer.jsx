@@ -12,8 +12,8 @@ import { OklchHuePicker } from './OklchHuePicker';
 export const Footer = () => {
     return (
         <footer className='Footer-Container'>
-            <OklchHuePicker vertical={true} />
             <address className='Footer-Contacts_contact-options' itemScope itemType='https://schema.org/LocalBusiness'>
+                <OklchHuePicker vertical={true} />
                 <a
                     className='Footer-ContactLink Footer-Contacts_mobile-phone'
                     href='tel:+61448488884'
@@ -94,6 +94,7 @@ export const Footer = () => {
                     </div>
                 </a>
             </address>
+            <p className='Footer-CopyrightStamp'><span className='Footer-CopyrightStamp_logo'>©&#xfe0e;</span> - {new Date().getFullYear()} </p>
         </footer>
     );
 };

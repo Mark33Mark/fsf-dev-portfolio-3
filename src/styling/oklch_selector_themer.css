@@ -133,24 +133,27 @@ input[type='range']::-moz-range-thumb {
 
 .OklchSelector-Container:has(.OklchSelector-TrackContainer_vertical input[type='range'])::before {
     content: "∆";
+    font-style: normal;
     font-size: clamp(0.75rem, 0.7svh, 0.85rem);
     position: absolute;
-    transform: translate(50%, -25%);
+    transform: translate(5%, -25%);
 }
 
 .OklchSelector-Container:has(.OklchSelector-TrackContainer_vertical input[type='range'])::after {
     content: "∇";
+    font-style: normal;
     font-size: clamp(0.75rem, 0.7svh, 0.85rem);
     position: absolute;
-    transform: translate(10%, -85%);
+    transform: translate(-10%, -85%);
 }
 
 .OklchSelector-TrackContainer_vertical input[type='range'] ~ .OklchSelector-ThumbText {
     left: unset;
     top: unset;
+    font-style: normal;
     /* bottom: calc((var(--value) * 1%) + (1rem - (var(--value) * 0.02rem))); */
     /* transform: translate(75%, -10%); */
-    margin-left: clamp(1.7rem, 4vw, 2.25rem);
+    margin-left: clamp(1.7rem, 4vw, 2.75rem);
     margin-top: clamp(0.75rem, 1.25vw, 1.125rem);
     font-size: clamp(0.65rem, 0.7svh, 0.85rem);
     color: var(--COLOUR_GRADE_600);

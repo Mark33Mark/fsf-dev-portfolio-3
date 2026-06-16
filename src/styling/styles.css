@@ -860,7 +860,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 60svh;
-    width: var(--COMPONENT_WIDTH);
     font-size: 15rem;
 }
 
@@ -873,6 +872,7 @@ body {
 .Footer-Container {
     grid-area: footer;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: var(--COMPONENT_WIDTH);
@@ -897,7 +897,7 @@ body {
     align-items: center;
     justify-content: center;
     width: clamp(1.75rem, 5vw, 7rem);
-    margin: 0 clamp(0.25rem, 1vw, 3rem);
+    margin: 0 clamp(0.25rem, 1vw, 1.25rem);
     transition: all 0.5s ease-in-out;
     color: var(--COLOUR_GRADE_500);
 }
@@ -917,14 +917,29 @@ body {
 }
 
 .Footer-Contact_github-icon svg {
-    /* width: clamp(1.4rem, 5.85vw, 6.5rem); */
-    width: 7rem;
-    height: 7rem;
+    width: clamp(1.65rem, 5.25vw, 4.5rem);
+    height:  clamp(1.65rem, 5.25vw, 4.5rem);
+}
+
+.Footer-Contact_information-icon svg {
+    width: clamp(1.4rem, 5.85vw, 4rem);
+    height: clamp(1.4rem, 5.85vw, 4rem);
+}
+
+.Footer-CopyrightStamp {
+    color: var(--COLOUR_GRADE_500);
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.Footer-CopyrightStamp_logo {
+    font-size: 1.25rem;
 }
 
 @media (min-width: 650px) {
     .Footer-ContactIcon {
-        margin: 0 clamp(0.75rem, 3vw, 3rem);
+        margin: 0 clamp(0.75rem, 3vw, 1.25rem);
     }
 }
 
