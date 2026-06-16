@@ -1,4 +1,12 @@
-import { EmailIcon, GithubIcon, LinkedInIcon, MobilePhoneIcon, TelegramIcon, WhatsappIcon } from './Icons';
+import {
+    EmailIcon,
+    GithubIcon,
+    InformationIcon,
+    LinkedInIcon,
+    MobilePhoneIcon,
+    TelegramIcon,
+    WhatsappIcon,
+} from './Icons';
 import { OklchHuePicker } from './OklchHuePicker';
 
 export const Footer = () => {
@@ -73,6 +81,16 @@ export const Footer = () => {
                 >
                     <div className='Footer-ContactIcon Footer-Contact_github-icon'>
                         <GithubIcon />
+                    </div>
+                </a>
+
+                <a
+                    className='Footer-ContactLink Footer-ContactLink_information'
+                    href='#information'
+                    aria-label='information regarding your privacy'
+                >
+                    <div className='Footer-ContactIcon Footer-Contact_information-icon'>
+                        <InformationIcon />
                     </div>
                 </a>
             </address>

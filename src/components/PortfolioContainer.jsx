@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { flushSync } from 'react-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { About, Portfolio, Contact, Resume } from './pages';
+import { About, Portfolio, Contact, Resume, Information } from './pages';
 import { ErrorFallback, Header, NavIndex, Footer } from '../components';
 
 export const PortfolioContainer = () => {
@@ -51,6 +51,8 @@ export const PortfolioContainer = () => {
                 setCurrentPage('Contact');
             } else if (currentHash === '#resume') {
                 setCurrentPage('Resume');
+            } else if (currentHash === '#information') {
+                setCurrentPage('Information');
             } else {
                 setCurrentPage('About');
             }
@@ -104,6 +106,13 @@ export const PortfolioContainer = () => {
                         className={`PortfolioContainer-Resume_${currentPage === 'Resume' ? 'block' : 'hidden'}`}
                     >
                         <Resume />
+                    </section>
+
+                    <section
+                        id='information'
+                        className={`PortfolioContainer-Information_${currentPage === 'Information' ? 'block' : 'hidden'}`}
+                    >
+                        <Information />
                     </section>
                 </div>
 

@@ -14,6 +14,7 @@ export {
     EmailIcon,
     GithubIcon,
     GitHubLogoIcon,
+    InformationIcon,
     LinkedInIcon,
     MobilePhoneIcon,
     TelegramIcon,

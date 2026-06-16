@@ -10,15 +10,7 @@ export const Resume = () => {
                 <h1 className='Resume-PageHeading'>Resumé</h1>
                 <p className='Resume-Description'>
                     Click to get a copy of my resume on your device:
-                    {/* <a
-                        href='../assets/resume_MarkWatson.pdf'
-                        target='_blank'
-                        className='Resume-DownloadLink'
-                        aria-label='download a copy of the resumé for Mark Watson'
-                        alt='download a copy of the resumé for Mark Watson'
-                    >
-                        <DocDownloadIcon />
-                    </a> */}
+
                     <PDFDownloadLink
                         document={<ResumePdfRenderer />}
                         fileName={getLocalFileName('resume_MarkWatson', 'pdf')}
