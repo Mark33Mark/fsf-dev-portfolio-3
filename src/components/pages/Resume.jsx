@@ -1,23 +1,16 @@
-import { useState } from 'react';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 import { DocDownloadIcon } from '../Icons';
-import { ResumeDoc } from '../ResumeDoc';
+import { ResumeDocHtml, ResumePdfRenderer } from '../../components';
+import { getLocalFileName } from '../../utilities';
 
 export const Resume = () => {
-    const [active, setActive] = useState(true);
-
-    const handleChangeActive = () => {
-        setActive(previousPage => {
-            return !previousPage;
-        });
-    };
-
     return (
         <>
             <div className='Resume-Container'>
                 <h1 className='Resume-PageHeading'>Resumé</h1>
                 <p className='Resume-Description'>
-                    Click the download icon to get a copy on your device:
-                    <a
+                    Click to get a copy of my resume on your device:
+                    {/* <a
                         href='../assets/resume_MarkWatson.pdf'
                         target='_blank'
                         className='Resume-DownloadLink'
@@ -25,11 +18,20 @@ export const Resume = () => {
                         alt='download a copy of the resumé for Mark Watson'
                     >
                         <DocDownloadIcon />
-                    </a>
+                    </a> */}
+                    <PDFDownloadLink
+                        document={<ResumePdfRenderer />}
+                        fileName={getLocalFileName('resume_MarkWatson', 'pdf')}
+                        className='Resume-DownloadLink'
+                        aria-label='download a copy of the resumé for Mark Watson'
+                        alt='download a copy of the resumé for Mark Watson'
+                    >
+                        {({ loading }) => (loading ? 'Compiling PDF Vector Asset...' : <DocDownloadIcon />)}
+                    </PDFDownloadLink>
                 </p>
             </div>
 
-            <ResumeDoc />
+            <ResumeDocHtml />
         </>
     );
 };

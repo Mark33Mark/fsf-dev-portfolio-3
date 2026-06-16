@@ -3,10 +3,17 @@
  *  Resume Document
  * =============================== 
  */
+
+.Resume-DocContainer {
+    width: 86vw;
+    height: 100%;
+    margin-left: 0;
+    margin-right: auto;
+}
+
 .ResumeDoc {
     max-width: 73rem; /* 1200px - 32px = 1168px */
     height: clamp(21.5rem, 50svh, 55rem);
-    margin: 0 auto;
     padding: clamp(0.75rem, 1.5vw, 1.5rem);
     background-color: #ffffff;
     color: #1f2937;
@@ -22,7 +29,8 @@
 
 /* Header Section */
 .ResumeDoc-Header {
-    border-bottom: 2px solid #030712;
+    text-align: center;
+    border-bottom: 0.25rem solid #030712;
     padding-bottom: 1rem;
     margin-bottom: 1.5rem;
 }
@@ -52,6 +60,10 @@
     font-weight: 600;
     color: var(--COLOUR_GRADE_600, #2563eb);
     margin-top: 0.5rem;
+}
+
+.ResumeDoc-Links span {
+    margin: 1rem;
 }
 
 .ResumeDoc-Links a {
@@ -119,6 +131,7 @@
 .ResumeDoc-ExperienceHeaderRow {
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-weight: 700;
     color: #030712;
 }
@@ -145,11 +158,13 @@
     list-style-position: inside;
     color: #374151;
     margin: 0.25rem 0 0 0;
-    padding-left: 0.5rem;
+    padding-left: 1rem;
 }
 
 .ResumeDoc-ExperienceList li {
     margin-bottom: 0.125rem;
+    /* push the bullet outside the text block to align wrapped lines */
+    list-style-position: outside; 
 }
 
 .ResumeDoc-ExperienceList a {

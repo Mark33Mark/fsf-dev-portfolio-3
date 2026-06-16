@@ -25,6 +25,6 @@ export { NavIndex } from './NavIndex';
 export { OklchHuePicker } from './OklchHuePicker';
 export { PortfolioContainer } from './PortfolioContainer';
 export { QuoteResult } from './QuoteResult';
-export { ResumeDoc } from './ResumeDoc';
-
-``;
+export { ResumeDocHtml } from './ResumeDocHtml';
+export { ResumeDocJsx } from './ResumeDocJsx';
+export { ResumePdfRenderer } from './ResumePdfRenderer';
