@@ -137,7 +137,7 @@ export const ResumeData = {
             description:
                 'A simple app to investigate dog breeds and their suitability for you.',
             links: [
-                { label: 'Live App', url: 'https://dog-wiki.netlify.app' },
+                { label: 'Live App', url: 'https://doggy-wiki.netlify.app' },
                 { label: 'GitHub', url: 'https://github.com/Mark33Mark/dogwiki_serverless' },
             ],
         },

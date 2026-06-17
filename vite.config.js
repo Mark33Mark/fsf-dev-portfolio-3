@@ -88,7 +88,7 @@ export default defineConfig({
                 ],
             },
         }),
-        excludeFolderFromBuild(['assets/readme_assets']),
+        excludeFolderFromBuild(['assets/readme_assets','assets/projects/retired']),
     ],
     server: {
         open: true,

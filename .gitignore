@@ -2,6 +2,7 @@
 
 # working files
 /utilities/notForGit
+/public/assets/projects/retired
 
 # dependencies
 /node_modules

@@ -326,7 +326,8 @@ body {
 .About-PageHeading,
 .Portfolio-PageHeading,
 .Contact-PageHeading,
-.Resume-PageHeading {
+.Resume-PageHeading,
+.Information-PageHeading {
     text-shadow: -1px 2px 5px var(--COLOUR_GRADE_700);
     font-weight: 700;
     margin: 0;
@@ -602,7 +603,7 @@ body {
     padding: 0.5rem;
     box-shadow: -0.125rem 0.25rem 0.25rem 0.2rem var(--COLOUR_GRADE_100);
     transition: box-shadow 1s ease;
-    margin: clamp(0.25rem, 0.5svh ,0.75rem);
+    margin: clamp(0.25rem, 0.5svh, 0.75rem);
 }
 
 .Contact-Form:focus-within {
@@ -718,7 +719,7 @@ body {
 
 .Contact-FormErrorMessage {
     /* used so that \n is recognised as a new line */
-    white-space: pre-line; 
+    white-space: pre-line;
     padding: 0 0.75rem;
 }
 
@@ -870,10 +871,32 @@ body {
 
 .Information-Container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    height: 60svh;
-    font-size: 15rem;
+    height: 68svh;
+    overflow-y: auto;
+}
+
+.Information-SectionTitle {
+    text-align: left;
+    margin: 0;
+    padding: clamp(0.5rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.75rem);
+}
+
+.Information-Introduction, .Information-SectionItem {
+    text-align: left;
+    margin: 0;
+    padding: 0 clamp(0.5rem, 2vw, 2rem);
+    font-size: clamp(0.85rem, 2vw, 1.75rem);
+}
+
+.Information-SectionItem_effectiveDate {
+    margin: 0;
+    margin-top: clamp(1rem, 2vw, 1.75rem);
+    padding: 0;
+    font-size: clamp(0.75rem, 1vw, 1rem);
 }
 
 /* 
