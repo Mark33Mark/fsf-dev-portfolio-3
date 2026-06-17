@@ -11,7 +11,5 @@ export const getLocalFileName = (baseName, extension) => {
     // Replace file system unsafe characters (like '/' and ':') and spaces with hyphens
     const safeDate = localDate.replace(/[/:,]/g, '').replace(/\s/g, '-');
 
-        console.log('localDate = ', safeDate)
-
     return `${safeDate}_${baseName}.${extension}`;
 };
