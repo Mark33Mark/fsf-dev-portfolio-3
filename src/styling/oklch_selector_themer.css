@@ -1,4 +1,3 @@
-
 /* 
  * ===============================
  *  Themer Slider component
@@ -25,6 +24,7 @@
     flex: 1;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .OklchSelector-ThumbText {
@@ -101,8 +101,8 @@ input[type='range']::-moz-range-thumb {
 
 .OklchSelector-TrackContainer_vertical input[type='range'] {
     writing-mode: vertical-lr;
-    width: var(--SLIDER_HEIGHT);
-    height: clamp(2rem, 4svh, 3.5rem);
+    width: clamp(0.5rem, 1vw, 1.5rem);
+    height: clamp(1.5rem, 4svh, 3.5rem);
     transform: rotate(180deg);
 
     /* the adjustment formula: (half_thumb_width - (percent * thumb_width / 100))*/
@@ -127,34 +127,62 @@ input[type='range']::-moz-range-thumb {
     padding: 0;
     padding-left: 0.5rem;
     padding-bottom: 0.25rem;
-    height: unset;
-    width: clamp(3rem, 4vw, 5rem);;
+    height: 100%;
+    width: clamp(2rem, 4vw, 4rem);
 }
 
-.OklchSelector-Container:has(.OklchSelector-TrackContainer_vertical input[type='range'])::before {
-    content: "∆";
-    font-style: normal;
-    font-size: clamp(0.75rem, 0.7svh, 0.85rem);
-    position: absolute;
-    transform: translate(5%, -25%);
-}
-
-.OklchSelector-Container:has(.OklchSelector-TrackContainer_vertical input[type='range'])::after {
-    content: "∇";
-    font-style: normal;
-    font-size: clamp(0.75rem, 0.7svh, 0.85rem);
-    position: absolute;
-    transform: translate(-10%, -85%);
-}
-
-.OklchSelector-TrackContainer_vertical input[type='range'] ~ .OklchSelector-ThumbText {
+.OklchSelector-TrackContainer_vertical input[type='range'] ~ .OklchSelector-ControlsContainer .OklchSelector-ThumbText {
     left: unset;
     top: unset;
+    transform: unset;
+    position: relative;
     font-style: normal;
     /* bottom: calc((var(--value) * 1%) + (1rem - (var(--value) * 0.02rem))); */
     /* transform: translate(75%, -10%); */
-    margin-left: clamp(1.7rem, 4vw, 2.75rem);
-    margin-top: clamp(0.75rem, 1.25vw, 1.125rem);
+    /* margin-left: clamp(1.7rem, 4vw, 2.75rem); */
+    /* margin-top: clamp(0.75rem, 1.25vw, 1.125rem); */
     font-size: clamp(0.65rem, 0.7svh, 0.85rem);
     color: var(--COLOUR_GRADE_600);
+}
+
+.OklchSelector-ControlsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 0.5rem;
+}
+
+.OklchSelector-ControlButton_up {
+    transform: rotate(180deg);
+}
+
+.OklchSelector-ControlButton_up,
+.OklchSelector-ControlButton_down {
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: var(--COLOUR_GRADE_600);
+    font-size: clamp(0.5rem, 1.7svh, 1.25rem);
+    font-weight: 700;
+    background: none;
+}
+
+.OklchSelector-ControlButton_up:hover,
+.OklchSelector-ControlButton_down:hover {
+    cursor: pointer;
+    color: var(--COLOUR_GRADE_300);
+}
+
+.OklchSelector-ControlButton_up:active,
+.OklchSelector-ControlButton_down:active {
+    cursor: pointer;
+    outline: 3px solid var(--COLOUR_GRADE_400);
+    outline-offset: 1px;
+}
+
+.OklchSelector-ControlButton_up:focus-visible,
+.OklchSelector-ControlButton_down:focus-visible {
+    cursor: pointer;
+    outline: 2px solid #ff9800;
+    outline-offset: 2px;
 }

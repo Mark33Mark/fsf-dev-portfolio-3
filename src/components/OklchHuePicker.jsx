@@ -6,12 +6,16 @@ export const OklchHuePicker = props => {
 
     const MIN_SLIDER_VALUE = 1;
     const MAX_SLIDER_VALUE = 360;
+    const SLIDER_VALUE =
+        (((JSON.parse(localStorage.getItem('theme')).hue || 260) - MIN_SLIDER_VALUE) /
+            (MAX_SLIDER_VALUE - MIN_SLIDER_VALUE)) * 100;
 
-    const [hue, setHue] = useState(260);
-    const [sliderBarValue, setSliderBarValue] = useState(72.14);
+    const [hue, setHue] = useState(JSON.parse(localStorage.getItem('theme')).hue || 260);
+    const [sliderBarValue, setSliderBarValue] = useState(SLIDER_VALUE);
 
     useEffect(() => {
         if (!localStorage.getItem('theme')) return;
+
         setHue(JSON.parse(localStorage.getItem('theme')).hue);
         setSliderBarValue(
             ((JSON.parse(localStorage.getItem('theme')).hue - MIN_SLIDER_VALUE) /
@@ -23,6 +27,10 @@ export const OklchHuePicker = props => {
     useEffect(() => {
         document.documentElement.style.setProperty('--COLOUR_GRADE_HUE', `${hue}`);
         document.documentElement.style.setProperty('--value', sliderBarValue);
+
+        setSliderBarValue(((hue - MIN_SLIDER_VALUE) / (MAX_SLIDER_VALUE - MIN_SLIDER_VALUE)) * 100);
+
+        localStorage.setItem('theme', JSON.stringify({ hue: Number(hue) }));
     }, [hue]);
 
     const handleHueChange = event => {
@@ -36,6 +44,21 @@ export const OklchHuePicker = props => {
     };
 
     const oklchString = `oklch(${initialLightness} ${initialChroma} ${hue})`;
+
+    const changeSliderPosition = event => {
+        const { className } = event.target;
+        const buttonClicked = className.substring(className.indexOf('_') + 1);
+
+        if (hue >= 355) {
+            setHue(360);
+            return;
+        } else if (hue <= 5) {
+            setHue(1);
+            return;
+        }
+
+        buttonClicked === 'up' ? setHue(prev => prev + 5) : setHue(prev => prev - 5);
+    };
 
     return (
         <div className='OklchSelector-Container'>
@@ -52,11 +75,27 @@ export const OklchHuePicker = props => {
                     value={hue}
                     onChange={handleHueChange}
                     className='OklchSelector-Slider'
-                    aria-labelledby="slider-value"
+                    aria-labelledby='slider-value'
                 />
-                <span id='slider-value' className='OklchSelector-ThumbText'>
-                    {hue.toString().padStart(3, '0')}
-                </span>
+                <div className='OklchSelector-ControlsContainer'>
+                    <button
+                        className='OklchSelector-ControlButton_up'
+                        onClick={changeSliderPosition}
+                        title='increase hue by 5 units per click to set your theme colour'
+                    >
+                        ∇
+                    </button>
+                    <div id='slider-value' className='OklchSelector-ThumbText'>
+                        {hue.toString().padStart(3, '0')}
+                    </div>
+                    <button
+                        className='OklchSelector-ControlButton_down'
+                        onClick={changeSliderPosition}
+                        title='decrease hue by 5 units per click to set your theme colour'
+                    >
+                        ∇
+                    </button>
+                </div>
             </div>
         </div>
     );

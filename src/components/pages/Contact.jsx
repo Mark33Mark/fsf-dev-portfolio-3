@@ -26,7 +26,7 @@ export const Contact = () => {
                 target: { style },
             } = event;
             setMessageCharacters(target.value.length);
-            console.log('target = ', target);
+
             target.value.length >= 490 ?
                 target.classList.add('maximumCharactersReached')
             :   target.classList.remove('maximumCharactersReached');
@@ -72,7 +72,7 @@ export const Contact = () => {
                 if (res.status !== 200) {
                     event.target.reset();
                     setErrorMessage(
-                        "Unfortunately, the form didn't submit.\n\nWe're aware of the issue and working to fix it.  Please don't reattempt."
+                        "😒\n\nUnfortunately, your form failed to submit.\n\nWe're aware of the issue and working to fix it.  Please don't reattempt.\n\nInstead, please use one of the other methods at the bottom of this page to contact me. "
                     );
                 } else {
                     event.target.reset();
@@ -174,13 +174,13 @@ export const Contact = () => {
                         Submit Form
                     </button>
                 </form>
-            </div>
 
-            {errorMessage && (
-                <div className='Contact-FormErrorContainer'>
-                    <p className='Contact-FormErrorMessage'>{errorMessage}</p>
-                </div>
-            )}
+                {errorMessage && (
+                    <div className='Contact-FormErrorContainer'>
+                        <p className='Contact-FormErrorMessage'>{errorMessage}</p>
+                    </div>
+                )}
+            </div>
         </>
     );
 };

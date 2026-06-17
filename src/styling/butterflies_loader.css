@@ -10,6 +10,8 @@
     width: 86vw;
     font-weight: 600;
     animation: pulse 2s ease-in-out infinite;
+    margin: 0;
+    padding: 0;
 }
 
 .LoaderButterflies-Container {
