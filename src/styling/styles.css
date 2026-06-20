@@ -124,7 +124,7 @@ body {
         clamp(2rem, 4svh, 7.5rem)
         clamp(4rem, 5svh, 6rem)
         clamp(1.5rem, 3svh, 4rem)
-        auto
+        1fr
         clamp(3.25rem, 5svh, 8rem);
     gap: 0.25rem;
 }

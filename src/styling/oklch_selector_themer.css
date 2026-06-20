@@ -77,7 +77,7 @@ input[type='range']::-moz-range-track {
     height: 2rem;
     background: #ccc;
     border-radius: 1rem;
-    border: 1px solid #111;
+    /* border: 1px solid #111; */
 }
 
 /* color before the thumb (the accent progress) */
@@ -91,7 +91,7 @@ input[type='range']::-moz-range-thumb {
     appearance: none;
     height: 2rem;
     width: 2rem;
-    background: var(--COLOUR_GRADE_500);
+    background: var(--COLOUR_GRADE_400);
     border-radius: 50%;
     margin-top: 0; /* centre thumb on the track */
 }
@@ -120,6 +120,24 @@ input[type='range']::-moz-range-thumb {
     background: var(--COLOUR_GRADE_300);
     border: 0.125rem solid #666;
     border-radius: unset;
+}
+
+/* color before the thumb (the accent progress) */
+.OklchSelector-TrackContainer_vertical input[type='range']::-moz-range-progress {
+    background-color: var(--COLOUR_GRADE_500);
+    height: 1.9rem;
+    width: 100%;
+}
+
+.OklchSelector-TrackContainer_vertical input[type='range']::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: clamp(0.125rem, 0.3svh, 0.3rem);
+    width: 1.5rem;
+    background: var(--COLOUR_GRADE_200);
+    border-radius: 50%;
+    border-color: #666;
+    margin-top: 0; /* centre thumb on the track */
 }
 
 .OklchSelector-Container:has(.OklchSelector-TrackContainer_vertical input[type='range']) {

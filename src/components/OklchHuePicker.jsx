@@ -6,29 +6,27 @@ export const OklchHuePicker = props => {
 
     const MIN_SLIDER_VALUE = 1;
     const MAX_SLIDER_VALUE = 360;
+    const STORED_THEME = JSON.parse(localStorage.getItem('theme')) || {};
+    const STORED_HUE = STORED_THEME.hue ?? 260;
     const SLIDER_VALUE =
-        (((JSON.parse(localStorage.getItem('theme')).hue || 260) - MIN_SLIDER_VALUE) /
-            (MAX_SLIDER_VALUE - MIN_SLIDER_VALUE)) * 100;
+        Math.ceil(((STORED_HUE - MIN_SLIDER_VALUE) /
+            (MAX_SLIDER_VALUE - MIN_SLIDER_VALUE)) * 100);
 
-    const [hue, setHue] = useState(JSON.parse(localStorage.getItem('theme')).hue || 260);
+    const [hue, setHue] = useState(STORED_HUE);
     const [sliderBarValue, setSliderBarValue] = useState(SLIDER_VALUE);
 
     useEffect(() => {
         if (!localStorage.getItem('theme')) return;
 
         setHue(JSON.parse(localStorage.getItem('theme')).hue);
-        setSliderBarValue(
-            ((JSON.parse(localStorage.getItem('theme')).hue - MIN_SLIDER_VALUE) /
-                (MAX_SLIDER_VALUE - MIN_SLIDER_VALUE)) *
-                100
-        );
+        setSliderBarValue(SLIDER_VALUE);
     }, []);
 
     useEffect(() => {
         document.documentElement.style.setProperty('--COLOUR_GRADE_HUE', `${hue}`);
         document.documentElement.style.setProperty('--value', sliderBarValue);
 
-        setSliderBarValue(((hue - MIN_SLIDER_VALUE) / (MAX_SLIDER_VALUE - MIN_SLIDER_VALUE)) * 100);
+        setSliderBarValue(Math.ceil(((hue - MIN_SLIDER_VALUE) / (MAX_SLIDER_VALUE - MIN_SLIDER_VALUE)) * 100));
 
         localStorage.setItem('theme', JSON.stringify({ hue: Number(hue) }));
     }, [hue]);
@@ -49,10 +47,10 @@ export const OklchHuePicker = props => {
         const { className } = event.target;
         const buttonClicked = className.substring(className.indexOf('_') + 1);
 
-        if (hue >= 355) {
+        if ( hue >= 355 && buttonClicked === 'up' ) {
             setHue(360);
             return;
-        } else if (hue <= 5) {
+        } else if ( hue <= 5 && buttonClicked === 'down' ) {
             setHue(1);
             return;
         }
