@@ -5,6 +5,10 @@
  */
 
 .OklchSelector-Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     height: clamp(5rem, 7svh, 7rem);
     padding: 0.5rem;
 }
@@ -23,7 +27,7 @@
     flex: 1;
     display: flex;
     align-items: center;
-    height: 100%;
+    height: clamp(1.5rem, 5svh, 3.5rem);
 }
 
 .OklchSelector-ThumbText {
@@ -101,8 +105,9 @@ input[type='range']::-moz-range-thumb {
 .OklchSelector-TrackContainer_vertical input[type='range'] {
     writing-mode: vertical-lr;
     width: clamp(0.5rem, 1vw, 1.5rem);
-    height: clamp(1.5rem, 4svh, 3.5rem);
+    height: clamp(1.5rem, 4.25svh, 3.5rem);
     transform: rotate(180deg);
+    position: absolute;
 
     /* the adjustment formula: (half_thumb_width - (percent * thumb_width / 100))*/
     background: linear-gradient(
@@ -162,11 +167,12 @@ input[type='range']::-moz-range-thumb {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin-left: 0.5rem;
+    margin-left: clamp(0.75rem, 1vw, 1rem);
 }
 
 .OklchSelector-ControlButton_up {
     transform: rotate(180deg);
+    top: -2px;
 }
 
 .OklchSelector-ControlButton_up,
@@ -178,6 +184,10 @@ input[type='range']::-moz-range-thumb {
     font-size: clamp(0.5rem, 1.7svh, 1.25rem);
     font-weight: 700;
     background: none;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    bottom: -5px;
 }
 
 .OklchSelector-ControlButton_up:hover,
