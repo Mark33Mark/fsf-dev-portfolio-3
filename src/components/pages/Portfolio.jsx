@@ -33,14 +33,23 @@ export const Portfolio = () => {
 
                             <p className='Portfolio-ProjectDescription'>{project.description}</p>
                             <div className='Portfolio-ProjectLinksContainer'>
-                                <a href={project.github} className='Portfolio-Link' target='_blank' rel='noreferrer'>
-                                    <GitHubLogoIcon />
-                                    <span className='Portfolio-GithubLink'>repo</span>
-                                </a>
-                                <a href={project.link} className='Portfolio-Link' target='_blank' rel='noreferrer'>
-                                    <WebpageIcon />
-                                    <span className='Portfolio-WebsiteLink'> website</span>
-                                </a>
+                                {project.github && (
+                                    <a
+                                        href={project.github}
+                                        className='Portfolio-Link'
+                                        target='_blank'
+                                        rel='noreferrer'
+                                    >
+                                        <GitHubLogoIcon />
+                                        <span className='Portfolio-GithubLink'>repo</span>
+                                    </a>
+                                )}
+                                {project.link && (
+                                    <a href={project.link} className='Portfolio-Link' target='_blank' rel='noreferrer'>
+                                        <WebpageIcon />
+                                        <span className='Portfolio-WebsiteLink'> website</span>
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </div>

@@ -5,19 +5,6 @@ import './styling/styles.css';
 
 const root = createRoot(document.getElementById('root'));
 
-    // useEffect(() => {
-        const originalOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth').get;
-
-        Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
-            get: function () {
-                // This will trigger ONLY when something tries to read offsetWidth
-                // You can filter by a class or ID if it's too noisy
-                console.trace('Forced Reflow Read Detected!');
-                return originalOffsetWidth.call(this);
-            },
-        });
-    // }, []);
-
 root.render(
     <StrictMode>
         <PortfolioContainer />
