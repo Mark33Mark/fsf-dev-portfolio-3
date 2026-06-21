@@ -575,6 +575,7 @@ body {
 
 .Contact-Map {
     height: clamp(9rem, 20svh, 20rem);
+    contain: size layout;
 
     /* Set initial state to transparent */
     opacity: 0;

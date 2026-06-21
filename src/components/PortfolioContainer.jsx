@@ -39,6 +39,8 @@ export const PortfolioContainer = () => {
         });
     };
 
+
+
     useEffect(() => {
         const handleHashChange = () => {
             const currentHash = window.location.hash;

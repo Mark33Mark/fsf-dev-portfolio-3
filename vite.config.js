@@ -118,6 +118,8 @@ export default defineConfig({
         assetsInlineLimit: 0,
         // Ensure the output directory is completely wiped clean so old manifests disappear
         emptyOutDir: true,
+        sourcemap: true,
+        devSourcemap: true,
     },
 
     test: {
