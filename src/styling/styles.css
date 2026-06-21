@@ -319,7 +319,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: clamp(28rem, 60svh, 90rem);
+    height: clamp(29rem, 60svh, 90rem);
     overflow-x: auto;
 }
 
@@ -432,8 +432,7 @@ body {
     color: var(--COLOUR_GRADE_300);
 }
 
-.Portfolio-GithubLink svg,
-.Portfolio-WebsiteLink svg {
+.Portfolio-Link svg {
     height: clamp(2.5rem, 3vw, 3rem);
     width: clamp(2.5rem, 3vw, 3rem);
     margin-top: 1rem;
